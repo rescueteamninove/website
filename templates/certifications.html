@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+{% from "macros/pagination.html" import render_pagination, render_pagination_index_start %}
+{% block title %}{{ this.title }}{% endblock %}
+{% block body %}
+<h1>{{ this.title }}</h1>
+{{ this.body }}
+<p>
+    <ol start="{{ render_pagination_index_start(this.pagination) }}">
+{% for cert in this.pagination.items %}
+    <li>
+        <a href="{{ cert | url }}">{{ cert.date_start | dateformat('yyyy') }}</a>
+    </li>
+{% endfor %}
+    </ol>
+</p>
+{% if this.pagination.pages > 1 %}
+{{ render_pagination(this.pagination) }}
+{% endif %}
+{% endblock %}

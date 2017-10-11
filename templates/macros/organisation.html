@@ -1,0 +1,11 @@
+{% from "macros/util.html" import join_iterable, wrap_if_url %}
+
+{% macro render_organisation_name(org_str, link=False) -%}{%
+    set name = bag('organisation.{}.name'.format(org_str)) %}{%
+    set url = bag('person.{}.url'.format(org_str)) %}{%
+    if link %}{{
+        wrap_if_url(name, url) }}{%
+    else %}{{
+        name }}{%
+    endif %}{%-
+endmacro %}

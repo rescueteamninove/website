@@ -1,0 +1,27 @@
+{% macro wrap_if_url(text, url) -%}{%
+    if url
+        %}<a href="{{ url }}">{%
+    endif %}{{
+    text }}{%
+    if url
+        %}</a>{%
+    endif %}{%-
+endmacro %}
+
+{% macro wrap_if_email(text, email) -%}{%
+    if email %}{%
+        set url = 'mailto:{}'.format(email) %}{%
+    else %}{%
+        set url = None %}{%
+    endif %}{{
+    wrap_if_url(text, url) }}{%-
+endmacro %}
+
+{% macro join_iterable(iterable, separator) -%}{%
+    for item in iterable %}{{
+        caller(item) }}{%
+        if not loop.last %}{{
+            separator }}{%
+        endif %}{%
+    endfor %}{%-
+endmacro %}

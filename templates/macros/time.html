@@ -1,0 +1,25 @@
+{% macro month_tostr(month) -%}{{
+    bag('i18n.{}.month_{}'.format(config.site_locale, month))}}{%-
+endmacro%}
+
+{% macro date_long_tostr(date) -%}{%
+    set day = date.day %}{%
+    set month_str = month_tostr(date.month) %}{%
+    set year = date.year %}{{
+        '{} {} {}'.format(day, month_str, year)
+    }}{%-
+endmacro %}
+
+{% macro date_short_tostr(date) -%}{%
+    set day = date.day %}{%
+    set month = date.month %}{%
+    set year = date.year %}{{
+        '{}/{}/{}'.format(day, month, year)
+    }}{%-
+endmacro %}
+
+{% macro time_tostr(time) -%}{%
+    set hour = time.hour %}{%
+    set minute = time.minute %}{{
+        '{}u{:02}'.format(hour, minute) }}{%-
+endmacro %}

@@ -1,0 +1,39 @@
+{% from "macros/util.html" import wrap_if_url %}
+
+{% macro get_location(location_str) -%}{%
+    set name = bag('location.{}.name'.format(location_str)) %}{%
+    set address = bag('location.{}.address'.format(location_str)).split(',') %}{%
+    set phone = bag('location.{}.phone'.format(location_str)) %}{%
+    set email = bag('location.{}.email'.format(location_str)) %}{%
+    set url = bag('location.{}.url'.format(location_str)) %}{%
+    set facebook = bag('location.{}.facebook'.format(location_str)) %}{%
+    set coordinates = bag('location.{}.coordinates'.format(location_str)) %}{%
+    set swimming_pool_indoor = bag('location.{}.swimming_pool_indoor'.format(location_str)) %}{%
+    set swimming_pond_outdoor = bag('location.{}.swimming_pond_outdoor'.format(location_str)) %}{{
+    caller(name, address, phone, email, url, facebook, coordinates, swimming_pool_indoor, swimming_pond_outdoor) }}{%-
+endmacro %}
+
+{% macro render_location_ul(location_str) -%}
+    <ul> {%
+    call(name, address, phone, email, url, facebook, coordinates, swimming_pool_indoor, swimming_pond_outdoor) get_location(location_str) %}
+        <li>{{ wrap_if_url(text=name, url=url) }}</li> {%
+        if address %}
+            <li>{{ render_address(location_str) }}</li> {%
+        endif %}{%
+        if phone %}
+            <li>Telefoon: {{phone}}</li> {%
+        endif %}{%
+    endcall %}
+    </ul> {%-
+endmacro %}
+
+{% macro render_location_address(location_str, separator='<br>\n') -%}{%
+    set address = bag('location.{}.address'.format(location_str)).split(',') %}{{
+    separator.join(address) | safe }}{%-
+endmacro %}
+
+{% macro render_location_name(location_str) -%}{%
+    set name = bag('location.{}.name'.format(location_str)) %}{%
+    set url = bag('location.{}.url'.format(location_str)) %}{{
+    wrap_if_url(text=name, url=url) }}{%-
+endmacro %}

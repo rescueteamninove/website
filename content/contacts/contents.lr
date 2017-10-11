@@ -1,0 +1,22 @@
+_model: contacts
+---
+_slug: /contact
+---
+title: Contact
+---
+contactperson_flows:
+
+#### contactperson ####
+person: administration
+#### contactperson ####
+person: president
+#### contactperson ####
+person: secretary
+#### contactperson ####
+person: treasurer
+#### contactperson ####
+person: manager1
+#### contactperson ####
+person: education
+#### contactperson ####
+person: enrollment

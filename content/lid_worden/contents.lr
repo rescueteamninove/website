@@ -1,0 +1,37 @@
+_model: enrollment
+---
+title: Lid worden
+---
+body:
+
+Als RTN lid geniet je van [vele voordelen](voordelen).
+
+## Wil je graag lid worden?
+
+Beste! Beslissing! Ooit!
+
+Gelieve een mail te sturen naar: [leden@rescueteam.be](mailto:leden@rescueteam.be?subject=MAIL_SUBJECT&body=MAIL_BODY).
+
+Vermeld hierin zeker je naam en geboortedatum. Wij brengen de inschrijving zo snel mogelijk in orde!
+
+## Twijfel je nog?
+
+Je kan geheel gratis aan 2 [trainingen](/training) deelnemen.
+
+## Ben je al lid?
+
+Vuistje.
+---
+mail_subject:
+Lid worden bij RTN
+---
+mail_body:
+Hallo!
+
+Ik wil lid worden van RTN.
+
+Mijn naam is .................. (naam invullen)
+
+Ik ben geboren op ../../.... (geboortedatum invullen)
+
+Gelieve mij te contacteren.

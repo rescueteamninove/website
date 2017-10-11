@@ -1,0 +1,7 @@
+<div>
+  <h2>{{ this.title }}</h2>
+    <ul>{% if this.name %}
+        <li>{{ this.name }}</li>{% endif %}{% if this.email %}
+        <li><a href="mailto:{{ this.email }}">{{ this.email }}</a></li>{% endif %}
+    </ul>
+</div>

@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+{% block title %}{{ this.title }}{% endblock %}
+{% block body %}
+<h1>Links</h1>
+<h2>Zwemclubs</h2>
+<ul>
+{% for key in this.swimming_clubs%}
+    {% set aka =  bag('club', '{}.aka'.format(key)) %}
+    <li><a href="{{ bag('club', '{}.url'.format(key)) }}">{{ bag('club', '{}.name'.format(key)) }}</a>
+    {% if aka %}
+        ({{ aka }})
+    {% endif %}</li>
+{% endfor %}</ul>
+<h2>Zwembaden</h2>
+<ul>
+{% for key in this.swimming_pools%}
+    <li><a href="{{ bag('location', '{}.url'.format(key)) }}">{{ bag('location', '{}.name'.format(key)) }}</a><br>
+    {{ '<br>'.join(bag('location', '{}.address'.format(key)).split(',')) | safe}}<br>
+    Telefoon: {{ bag('location', '{}.phone'.format(key)) }}</li>
+{% endfor %}</ul>
+<h2>Redden</h2>
+<ul>
+{% for key in this.organisations %}
+    <li>
+        <a href="{{ bag('organisation', '{}.url'.format(key)) }}">{{ bag('organisation', '{}.name'.format(key)) }}</a>
+        {% set aka =  bag('organisation', '{}.aka'.format(key)) %}
+        {% if aka %}
+            ({{ aka }})
+        {% endif %}
+    </li>
+{% endfor %}
+</ul>
+{% endblock %}
