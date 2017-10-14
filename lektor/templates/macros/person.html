@@ -1,0 +1,56 @@
+{% from "macros/util.html" import join_iterable, wrap_if_email %}
+
+{% macro get_person(person_str) -%}{%
+    set title = bag('person.{}.title'.format(person_str)) %}{%
+    set name = bag('person.{}.name'.format(person_str)) %}{%
+    set email = bag('person.{}.email'.format(person_str)) %}{%
+    set phone = bag('person.{}.phone'.format(person_str)) %}{{
+    caller(title, name, phone, email) }}{%-
+endmacro %}
+
+{% macro render_person(person_str) -%}{%
+    call(title, name, phone, email) get_person(person_str) %}
+        <li> {%
+            if title %}
+                <strong>{{ title }}</strong> {%
+            endif %}
+            <ul> {%
+                if name %}
+                    <li>{{ name }}</li> {%
+                endif %}{%
+                if phone %}
+                    <li>{{ phone }}</li> {%
+                endif %}{%
+                if email %}
+                    <li><a href="mailto:{{ email }}">{{ email }}</a></li> {%
+                endif %}
+            </ul>
+        </li> {%
+    endcall %}{%-
+endmacro %}
+
+{% macro render_person_name(person_str, link=False) -%}{%
+    set name = bag('person.{}.name'.format(person_str)) %}{%
+    set email = bag('person.{}.email'.format(person_str)) %}{%
+    if link %}{{
+        wrap_if_email(name, email) }}{%
+    else %}{{
+        name }}{%
+    endif %}{%-
+endmacro %}
+
+{% macro render_person_title(person_str, link=False) -%}{%
+    set title = bag('person.{}.title'.format(person_str)) %}{%
+    set email = bag('person.{}.email'.format(person_str)) %}{%
+    if link %}{{
+        wrap_if_email(title, email) }}{%
+    else %}{{
+        title }}{%
+    endif %}{%-
+endmacro %}
+
+{% macro render_person_iterable(persons, separator=', ', link=False) -%}{%
+    call(person) join_iterable(persons, separator=separator) %}{{
+        render_person_name(person, link) }}{%
+    endcall %}{%-
+endmacro %}

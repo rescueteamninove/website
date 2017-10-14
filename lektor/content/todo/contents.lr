@@ -1,0 +1,45 @@
+title: todo
+---
+body:
+* 'todo' pagina:
+  * toevoegen (DONE)
+  * verwijderen wanneer alle todo's gedaan zijn
+* Maak kalender
+* 'Welkom' pagina
+  * toevoegen
+  * nieuws
+  * agenda: opkomende events
+  * recentste opleidingen
+* 'Over' pagina:
+  * toevoegen
+  * bestuursleden / trainers hier toevoegen
+  * meer informatie over:
+    * rtn
+    * geschiedenis (betere tekst)
+    * ex-bestuursleden
+    * ...
+  * over / geboortedatum / ... toevoegen aan twitter @rtninove
+  * groepsfoto?
+* nieuws/foto's overzetten van facebook RTN naar de site
+* feature?:
+  * interview met 'historische figuren'
+    * Jean-Claude, Kris, Peter, ...?
+* maak webdev of admin@rescueteam.be adres aan
+* Publiek trekken:
+  * Reclame voor het 'reddersberoep' maken?
+    * vakantiewerk?
+  * kinderen motiveren?
+* Dynamische front-end:
+  * mobiel capabel
+  * foto's?
+* Dynamische back-end:
+  * inschrijven via formulier voor
+    * opleiding
+    * bijscholing
+    * lidmaatschap
+  * contact
+  * ledenbeheer???
+    * contacteer Dirk
+    * tijdig om proces inschrijving 2018 te bekijken
+  * nieuws / etc publiceren naar facebook / twitter
+
