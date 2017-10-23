@@ -14,9 +14,10 @@
 <h2>Zwembaden</h2>
 <ul>
 {% for key in this.swimming_pools%}
-    <li><a href="{{ bag('location', '{}.url'.format(key)) }}">{{ bag('location', '{}.name'.format(key)) }}</a><br>
+    <li><address><strong>{{ bag('location', '{}.name'.format(key)) }}</strong><br>
     {{ '<br>'.join(bag('location', '{}.address'.format(key)).split(',')) | safe}}<br>
-    Telefoon: {{ bag('location', '{}.phone'.format(key)) }}</li>
+    Telefoon: {{ bag('location', '{}.phone'.format(key)) }}<br>
+    <a href="{{ bag('location', '{}.url'.format(key)) }}">Website</a></address></li>
 {% endfor %}</ul>
 <h2>Redden</h2>
 <ul>

@@ -1,0 +1,75 @@
+{% extends "page.html" %}
+{% block body %}
+<h1>{{ this.title }}</h1>
+{{ this.body }}
+<form id="enlist_form" novalidate>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="firstname">Voornaam</label>
+      <input type="firstname" class="form-control" id="firstname" placeholder="Voornaam" required>
+    </div>
+    <div class="form-group col-md-6">
+      <label for="surname">Familienaam</label>
+      <input type="surname" class="form-control" id="surname" placeholder="Familienaam" required>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-12">
+      <label for="inputAddress">Adres</label>
+      <input type="text" class="form-control" id="inputAddress" placeholder="Straat" required>
+    </div>
+      <!--
+    <div class="form-group col-sm-2">
+      <label for="streetnumber">Nummer</label>
+      <input type="text" class="form-control" id="streetnumber" placeholder="Nummer" required>
+    </div>
+    -->
+  </div>
+  <div class="form-row">
+    <div class="form-group col-sm-2">
+      <label for="postcode">Postcode</label>
+      <input type="number" class="form-control" id="postcode" placeholder="Postcode" required>
+    </div>
+    <div class="form-group col-sm-10">
+      <label for="city">Stad</label>
+      <input type="text" class="form-control" id="city" placeholder="Stad" required>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-12">
+      <label for="email">E-mailadres</label>
+      <input type="email" class="form-control" id="email" placeholder="E-mailadres" required>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-12">
+      <label for="email">Telefoonnummer</label>
+      <input type="tel" class="form-control" id="telephone" placeholder="Telefoonnummer" required>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-12">
+      <label for="birthdate">Geboortedatum</label>
+      <input type="date" class="form-control" id="birthdate" placeholder="Geboortedatum" required>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary">Versturen</button>
+</form>
+<script>
+// Example starter JavaScript for disabling form submissions if there are invalid fields
+(function() {
+  'use strict';
+
+  window.addEventListener('load', function() {
+    var form = document.getElementById('enlist_form');
+    form.addEventListener('submit', function(event) {
+      if (form.checkValidity() === false) {
+        event.preventDefault();
+        event.stopPropagation();
+      }
+      form.classList.add('was-validated');
+    }, false);
+  }, false);
+})();
+</script>
+{% endblock %}

@@ -1,0 +1,10 @@
+_model: page
+---
+_template: form_enroll.html
+---
+title: Inschrijven
+---
+body:
+Vul het onderstaande formulier in om je in te schrijven.
+
+Wij nemen dan zo spoedig mogelijk contact met je op.

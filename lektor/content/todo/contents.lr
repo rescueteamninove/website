@@ -5,6 +5,14 @@ body:
   * toevoegen (DONE)
   * verwijderen wanneer alle todo's gedaan zijn
 * Maak kalender
+* Cases:
+  * jongere die een sportclub zoekt
+  * ouders die iets voor hun kinderen zoeken
+  * puber die informatie over vakantiejob zoekt
+  * iemand die job als redder wilt
+  * redder die bijscholing wil volgen
+  * volwassene die wil trainen
+  * &lt;andere&gt;
 * 'Welkom' pagina
   * toevoegen
   * nieuws
@@ -22,9 +30,9 @@ body:
   * groepsfoto?
 * nieuws/foto's overzetten van facebook RTN naar de site
 * feature?:
-  * interview met 'historische figuren'
+  * interview doen met 'historische figuren' om aan details te geraken
     * Jean-Claude, Kris, Peter, ...?
-* maak webdev of admin@rescueteam.be adres aan
+* maak [webdev](mailto:webdev@rescueteam.be) of [admin@rescueteam.be](mailto:admin@rescueteam.be) adres aan
 * Publiek trekken:
   * Reclame voor het 'reddersberoep' maken?
     * vakantiewerk?
@@ -37,9 +45,11 @@ body:
     * opleiding
     * bijscholing
     * lidmaatschap
+     * [formulier](/lidmaatschap/inschrijven):
+       * verbind met backend
+       * voeg [reCAPTCHA](https://developers.google.com/recaptcha/) toe
   * contact
   * ledenbeheer???
     * contacteer Dirk
     * tijdig om proces inschrijving 2018 te bekijken
   * nieuws / etc publiceren naar facebook / twitter
-

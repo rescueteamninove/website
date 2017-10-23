@@ -1,40 +1,72 @@
 {% macro render_pagination(pagination) %}
 {% set page_range = 2 %}
-  <div class="pagination">
-    {% if pagination.has_prev %}
-      <a href="{{ pagination.prev|url }}">&laquo; Vorige</a>
-    {% else %}
-      <span class="disabled">&laquo; Vorige</span>
-    {% endif %}
-    {% set start_range_end = 1 + page_range if pagination.page > page_range else pagination.page %}
-    {% set end_range_start = pagination.pages - page_range + 1 if pagination.page < pagination.pages - page_range + 1 else pagination.page + 1 %}
-    {% set pre_range_start = start_range_end if start_range_end > pagination.page - page_range else pagination.page - page_range %}
-    {% set post_range_end = pagination.page + page_range + 1 if pagination.page + page_range + 1 < end_range_start else end_range_start %}
-    {% for page in range(1, start_range_end) %}
-      | <a href="{{ pagination.for_page(page)|url }}">{{ page }}</a>
-    {% endfor %}
-    {% if start_range_end != pre_range_start %}
-      | ...
-    {% endif %}
-    {% for page in range(pre_range_start, pagination.page) %}
-      | <a href="{{ pagination.for_page(page)|url }}">{{ page }}</a>
-    {% endfor %}
-      | <span class="current">{{ pagination.page }}</span>
-    {% for page in range(pagination.page + 1, post_range_end) %}
-      | <a href="{{ pagination.for_page(page)|url }}">{{ page }}</a>
-    {% endfor %}
-    {% if post_range_end != end_range_start %}
-      | ...
-    {% endif %}
-    {% for page in range(end_range_start, pagination.pages + 1) %}
-      | <a href="{{ pagination.for_page(page)|url }}">{{ page }}</a>
-    {% endfor %}
-    {% if pagination.has_next %}
-      | <a href="{{ pagination.next|url }}">Volgende &raquo;</a>
-    {% else %}
-      | <span class="disabled">Volgende &raquo;</span>
-    {% endif %}
-  </div>
+  <nav aria-label="news-pagination">
+    <ul class="pagination">
+      <li class="page-item{% if not pagination.has_prev %} disabled{% endif %}">
+        {% set url_prev = pagination.prev if pagination.has_prev else '#' %}
+        <a href="{{ url_prev | url }}" class="page-link"{% if not pagination.has_prev %} tabindex="-1"{% endif %}>
+          Vorige
+        </a>
+      </li>
+      {% set start_range_end = 1 + page_range if pagination.page > page_range else pagination.page %}
+      {% set end_range_start = pagination.pages - page_range + 1 if pagination.page < pagination.pages - page_range + 1 else pagination.page + 1 %}
+      {% set pre_range_start = start_range_end if start_range_end > pagination.page - page_range else pagination.page - page_range %}
+      {% set post_range_end = pagination.page + page_range + 1 if pagination.page + page_range + 1 < end_range_start else end_range_start %}
+      {% for page in range(1, start_range_end) %}
+        <li class="page-item">
+          <a class="page-link" href="{{ pagination.for_page(page) | url }}">
+            {{ page }}
+          </a>
+        </li>
+      {% endfor %}
+      {% if start_range_end != pre_range_start %}
+        <li class="page-item disabled">
+          <a class="page-link" href="#" tabindex="-1">
+            ...
+          </a>
+        </li>
+      {% endif %}
+      {% for page in range(pre_range_start, pagination.page) %}
+        <li class="page-item">
+          <a class="page-link" href="{{ pagination.for_page(page) | url }}">
+            {{ page }}
+          </a>
+        </li>
+      {% endfor %}
+      <li class="page-item active">
+        <a class="page-link" href="{{ pagination.current | url }}">
+          {{ pagination.page }}
+        </a>
+      </li>
+      {% for page in range(pagination.page + 1, post_range_end) %}
+        <li class="page-item">
+          <a class="page-link" href="{{ pagination.for_page(page) | url }}">
+            {{ page }}
+          </a>
+        </li>
+      {% endfor %}
+      {% if post_range_end != end_range_start %}
+        <li class="page-item disabled">
+          <a class="page-link" href="#" tabindex="-1">
+            ...
+          </a>
+        </li>
+      {% endif %}
+      {% for page in range(end_range_start, pagination.pages + 1) %}
+        <li class="page-item">
+          <a class="page-link" href="{{ pagination.for_page(page) | url }}">
+            {{ page }}
+          </a>
+        </li>
+      {% endfor %}
+      <li class="page-item{% if not pagination.has_next %} disabled{% endif %}">
+        {% set url_next = pagination.next if pagination.has_next else '#' %}
+        <a class="page-link" href="{{ url_next | url }}" {% if not pagination.has_next %} tabindex="-1"{% endif %}>
+          Volgende
+        </a>
+      </li>
+    </ul>
+  </nav>
 {% endmacro %}
 
 {% macro render_pagination_index_start(pagination) %}{%

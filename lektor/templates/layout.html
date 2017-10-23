@@ -1,21 +1,54 @@
 <!doctype html>
-<meta charset="utf-8">
-<link rel="stylesheet" href="{{ '/static/style.css'|url }}">
-<title>{% block title %}Welcome{% endblock %} — {{ bag('site.title_short') }}</title>
+<html lang="nl">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="{{ bag('site.description') }}">
+    <meta name="author" content="{{ bag('site.title_long') }}">
+    <link rel="icon" href="{{ '/static/img/icon.ico' | asseturl }}">
+    <title>{% block title %}Welcome{% endblock %} &mdash; {{ bag('site.title_short') }}</title>
+
+    <!--<link rel="stylesheet" href="{{ '/static/style.css' | asseturl }}">-->
+    <link rel="stylesheet" href="{{ '/static/thirdparty/css/bootstrap.min.css' | asseturl }}">
+  </head>
 <body>
   <header>
-    <h1>{{ bag('site.title_long') }}</h1>
-    <nav>
-      <ul class="nav navbar-nav">{% for href, title in bag('main-nav').items() %}
-        <li{% if this.is_child_of(href) %} class="active"{% endif
-            %}><a href="{{ href|url }}">{{ title }}</a></li>{% endfor %}
-      </ul>
+    <nav class="navbar sticky-top navbar-light bg-light navbar-expand-sm">
+      <a class="navbar-brand text-hide" style="background-image: url('{{ '/static/img/icon.png' | asseturl }}'); background-size: 50px 50px; width: 50px; height: 50px;" href="/">{{ bag('site.title_short') }}</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">{%
+          for href, title in bag('main-nav').items() %}{%
+            set is_active = this.path == href or (href != '/' and this.is_child_of(href)) %}
+              <li class="nav-item{% if is_active %} active{% endif
+                  %}"><a class="nav-link" href="{{ href | url }}">{{ title }}</a></li>{%
+          endfor %}
+        </ul>
+      </div>
     </nav>
   </header>
-  <div class="page">
-    {% block body %}{% endblock %}
+  <div class="container">
+    <!--<h1>{{ bag('site.title_long') }}</h1>-->
+        {% block body %}{% endblock %}
+    <footer>
+      <nav aria-label="breadcrumb" role="navigation">
+        <ol class="breadcrumb">{%
+          set root = site.get('/') %}{%
+          set parents = get_parents(this) %}{%
+          for parent in parents[:-1] %}
+            <li class="breadcrumb-item">
+              <a href="{{ parent | url }}">{{ parent.title }}</a></li>
+            </li>{%
+          endfor %}
+          <li class="breadcrumb-item active">{{ parents[-1].title }}</li>
+        </ol>
+      </nav>
+      &copy;{{ bag('site.year_lastchange') }} door {{ bag('site.developer_name') }}.
+    </footer>
   </div>
-  <footer>
-    &copy;{{ bag('site.year_lastchange') }} door {{ bag('site.developer_name') }}.
-  </footer>
+  <script src="{{ '/static/thirdparty/js/jquery-3.2.1.min.js' | asseturl }}"></script>
+  <script src="{{ '/static/thirdparty/js/bootstrap.bundle.min.js' | asseturl }}"></script>
 </body>
+</html>
