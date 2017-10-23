@@ -14,7 +14,7 @@
 <body>
   <header>
     <nav class="navbar sticky-top navbar-light bg-light navbar-expand-sm">
-      <a class="navbar-brand text-hide" style="background-image: url('{{ '/static/img/icon.png' | asseturl }}'); background-size: 50px 50px; width: 50px; height: 50px;" href="/">{{ bag('site.title_short') }}</a>
+      <a class="navbar-brand text-hide" style="background-image: url('{{ '/static/img/icon.png' | asseturl }}'); background-size: 50px 50px; width: 50px; height: 50px;" href="{{ site.root | url }}">{{ bag('site.title_short') }}</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
