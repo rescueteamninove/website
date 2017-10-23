@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="nl">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Rescue Team Ninove is een zwemclub met nadruk op redderstechieken die wekelijks traint in het zwembad De Kleine Dender te Ninove. Onze club organiseert jaarlijks een cursus Hoger Redder. Twee keer per jaar wordt een bijscholing Hoger Redder georganiseerd.">
+    <meta name="author" content="Rescue Team Ninove">
+    <link rel="icon" href="../../static/img/icon.ico?h=929dfbd5">
+    <title>Inschrijven &mdash; RTN</title>
+
+    <!--<link rel="stylesheet" href="../../static/style.css?h=34609711">-->
+    <link rel="stylesheet" href="../../static/thirdparty/css/bootstrap.min.css?h=3e035b1a">
+  </head>
+<body>
+  <header>
+    <nav class="navbar sticky-top navbar-light bg-light navbar-expand-sm">
+      <a class="navbar-brand text-hide" style="background-image: url('../../static/img/icon.png?h=ca286ab3'); background-size: 50px 50px; width: 50px; height: 50px;" href="/">RTN</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+              <li class="nav-item"><a class="nav-link" href="../../nieuws/">Nieuws</a></li>
+              <li class="nav-item"><a class="nav-link" href="../../agenda/">Agenda</a></li>
+              <li class="nav-item"><a class="nav-link" href="../../training/">Training</a></li>
+              <li class="nav-item"><a class="nav-link" href="../../opleiding/">Opleiding</a></li>
+              <li class="nav-item active"><a class="nav-link" href="../../lidmaatschap/">Lidmaatschap</a></li>
+              <li class="nav-item"><a class="nav-link" href="../../links/">Links</a></li>
+              <li class="nav-item"><a class="nav-link" href="../../over/">Over</a></li>
+              <li class="nav-item"><a class="nav-link" href="../../todo/">TODO</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  <div class="container">
+    <!--<h1>Rescue Team Ninove</h1>-->
+        
+<h1>Inschrijven</h1>
+<p>Vul het onderstaande formulier in om je in te schrijven.</p>
+<p>Wij nemen dan zo spoedig mogelijk contact met je op.</p>
+
+<form id="enlist_form" novalidate>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="firstname">Voornaam</label>
+      <input type="firstname" class="form-control" id="firstname" placeholder="Voornaam" required>
+    </div>
+    <div class="form-group col-md-6">
+      <label for="surname">Familienaam</label>
+      <input type="surname" class="form-control" id="surname" placeholder="Familienaam" required>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-12">
+      <label for="inputAddress">Adres</label>
+      <input type="text" class="form-control" id="inputAddress" placeholder="Straat" required>
+    </div>
+      <!--
+    <div class="form-group col-sm-2">
+      <label for="streetnumber">Nummer</label>
+      <input type="text" class="form-control" id="streetnumber" placeholder="Nummer" required>
+    </div>
+    -->
+  </div>
+  <div class="form-row">
+    <div class="form-group col-sm-2">
+      <label for="postcode">Postcode</label>
+      <input type="number" class="form-control" id="postcode" placeholder="Postcode" required>
+    </div>
+    <div class="form-group col-sm-10">
+      <label for="city">Stad</label>
+      <input type="text" class="form-control" id="city" placeholder="Stad" required>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-12">
+      <label for="email">E-mailadres</label>
+      <input type="email" class="form-control" id="email" placeholder="E-mailadres" required>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-12">
+      <label for="email">Telefoonnummer</label>
+      <input type="tel" class="form-control" id="telephone" placeholder="Telefoonnummer" required>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-12">
+      <label for="birthdate">Geboortedatum</label>
+      <input type="date" class="form-control" id="birthdate" placeholder="Geboortedatum" required>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary">Versturen</button>
+</form>
+<script>
+// Example starter JavaScript for disabling form submissions if there are invalid fields
+(function() {
+  'use strict';
+
+  window.addEventListener('load', function() {
+    var form = document.getElementById('enlist_form');
+    form.addEventListener('submit', function(event) {
+      if (form.checkValidity() === false) {
+        event.preventDefault();
+        event.stopPropagation();
+      }
+      form.classList.add('was-validated');
+    }, false);
+  }, false);
+})();
+</script>
+
+    <footer>
+      <nav aria-label="breadcrumb" role="navigation">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+              <a href="../../">Start</a></li>
+            </li>
+            <li class="breadcrumb-item">
+              <a href="../../lidmaatschap/">Lidmaatschap</a></li>
+            </li>
+          <li class="breadcrumb-item active">Inschrijven</li>
+        </ol>
+      </nav>
+      &copy;2017 door Rescue Web Developer Team.
+    </footer>
+  </div>
+  <script src="../../static/thirdparty/js/jquery-3.2.1.min.js?h=1055018c"></script>
+  <script src="../../static/thirdparty/js/bootstrap.bundle.min.js?h=46d1f82f"></script>
+</body>
+</html>

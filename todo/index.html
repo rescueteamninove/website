@@ -1,25 +1,40 @@
 <!doctype html>
-<meta charset="utf-8">
-<link rel="stylesheet" href="../static/style.css">
-<title>todo — RTN</title>
+<html lang="nl">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Rescue Team Ninove is een zwemclub met nadruk op redderstechieken die wekelijks traint in het zwembad De Kleine Dender te Ninove. Onze club organiseert jaarlijks een cursus Hoger Redder. Twee keer per jaar wordt een bijscholing Hoger Redder georganiseerd.">
+    <meta name="author" content="Rescue Team Ninove">
+    <link rel="icon" href="../static/img/icon.ico?h=929dfbd5">
+    <title>todo &mdash; RTN</title>
+
+    <!--<link rel="stylesheet" href="../static/style.css?h=34609711">-->
+    <link rel="stylesheet" href="../static/thirdparty/css/bootstrap.min.css?h=3e035b1a">
+  </head>
 <body>
   <header>
-    <h1>Rescue Team Ninove</h1>
-    <nav>
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="../">Start</a></li>
-        <li><a href="../nieuws/">Nieuws</a></li>
-        <li class="active"><a href="../todo/">TODO</a></li>
-        <li><a href="../training/">Training</a></li>
-        <li><a href="../opleiding/">Opleiding</a></li>
-        <li><a href="../lidmaatschap/">Lidmaatschap</a></li>
-        <li><a href="../links/">Links</a></li>
-        <li><a href="../over/">Over</a></li>
-      </ul>
+    <nav class="navbar sticky-top navbar-light bg-light navbar-expand-sm">
+      <a class="navbar-brand text-hide" style="background-image: url('../static/img/icon.png?h=ca286ab3'); background-size: 50px 50px; width: 50px; height: 50px;" href="/">RTN</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+              <li class="nav-item"><a class="nav-link" href="../nieuws/">Nieuws</a></li>
+              <li class="nav-item"><a class="nav-link" href="../agenda/">Agenda</a></li>
+              <li class="nav-item"><a class="nav-link" href="../training/">Training</a></li>
+              <li class="nav-item"><a class="nav-link" href="../opleiding/">Opleiding</a></li>
+              <li class="nav-item"><a class="nav-link" href="../lidmaatschap/">Lidmaatschap</a></li>
+              <li class="nav-item"><a class="nav-link" href="../links/">Links</a></li>
+              <li class="nav-item"><a class="nav-link" href="../over/">Over</a></li>
+              <li class="nav-item active"><a class="nav-link" href="../todo/">TODO</a></li>
+        </ul>
+      </div>
     </nav>
   </header>
-  <div class="page">
-    
+  <div class="container">
+    <!--<h1>Rescue Team Ninove</h1>-->
+        
 <h1>todo</h1>
 <ul>
 <li>'todo' pagina:<ul>
@@ -28,6 +43,16 @@
 </ul>
 </li>
 <li>Maak kalender</li>
+<li>Cases:<ul>
+<li>jongere die een sportclub zoekt</li>
+<li>ouders die iets voor hun kinderen zoeken</li>
+<li>puber die informatie over vakantiejob zoekt</li>
+<li>iemand die job als redder wilt</li>
+<li>redder die bijscholing wil volgen</li>
+<li>volwassene die wil trainen</li>
+<li>&lt;andere&gt;</li>
+</ul>
+</li>
 <li>'Welkom' pagina<ul>
 <li>toevoegen</li>
 <li>nieuws</li>
@@ -51,13 +76,13 @@
 </li>
 <li>nieuws/foto's overzetten van facebook RTN naar de site</li>
 <li>feature?:<ul>
-<li>interview met 'historische figuren'<ul>
+<li>interview doen met 'historische figuren' om aan details te geraken<ul>
 <li>Jean-Claude, Kris, Peter, ...?</li>
 </ul>
 </li>
 </ul>
 </li>
-<li>maak webdev of admin@rescueteam.be adres aan</li>
+<li>maak <a href="mailto:webdev@rescueteam.be">webdev</a> of <a href="mailto:admin@rescueteam.be">admin@rescueteam.be</a> adres aan</li>
 <li>Publiek trekken:<ul>
 <li>Reclame voor het 'reddersberoep' maken?<ul>
 <li>vakantiewerk?</li>
@@ -75,7 +100,14 @@
 <li>inschrijven via formulier voor<ul>
 <li>opleiding</li>
 <li>bijscholing</li>
-<li>lidmaatschap</li>
+<li>lidmaatschap<ul>
+<li><a href="../lidmaatschap/inschrijven">formulier</a>:<ul>
+<li>verbind met backend</li>
+<li>voeg <a href="https://developers.google.com/recaptcha/">reCAPTCHA</a> toe</li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 <li>contact</li>
@@ -90,8 +122,19 @@
 </ul>
 
 
+    <footer>
+      <nav aria-label="breadcrumb" role="navigation">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+              <a href="../">Start</a></li>
+            </li>
+          <li class="breadcrumb-item active">todo</li>
+        </ol>
+      </nav>
+      &copy;2017 door Rescue Web Developer Team.
+    </footer>
   </div>
-  <footer>
-    &copy;2017 door Rescue Web Developer Team.
-  </footer>
+  <script src="../static/thirdparty/js/jquery-3.2.1.min.js?h=1055018c"></script>
+  <script src="../static/thirdparty/js/bootstrap.bundle.min.js?h=46d1f82f"></script>
 </body>
+</html>

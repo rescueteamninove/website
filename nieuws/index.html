@@ -1,25 +1,40 @@
 <!doctype html>
-<meta charset="utf-8">
-<link rel="stylesheet" href="../static/style.css">
-<title>Nieuws — RTN</title>
+<html lang="nl">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Rescue Team Ninove is een zwemclub met nadruk op redderstechieken die wekelijks traint in het zwembad De Kleine Dender te Ninove. Onze club organiseert jaarlijks een cursus Hoger Redder. Twee keer per jaar wordt een bijscholing Hoger Redder georganiseerd.">
+    <meta name="author" content="Rescue Team Ninove">
+    <link rel="icon" href="../static/img/icon.ico?h=929dfbd5">
+    <title>Nieuws &mdash; RTN</title>
+
+    <!--<link rel="stylesheet" href="../static/style.css?h=34609711">-->
+    <link rel="stylesheet" href="../static/thirdparty/css/bootstrap.min.css?h=3e035b1a">
+  </head>
 <body>
   <header>
-    <h1>Rescue Team Ninove</h1>
-    <nav>
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="../">Start</a></li>
-        <li class="active"><a href="../nieuws/">Nieuws</a></li>
-        <li><a href="../todo/">TODO</a></li>
-        <li><a href="../training/">Training</a></li>
-        <li><a href="../opleiding/">Opleiding</a></li>
-        <li><a href="../lidmaatschap/">Lidmaatschap</a></li>
-        <li><a href="../links/">Links</a></li>
-        <li><a href="../over/">Over</a></li>
-      </ul>
+    <nav class="navbar sticky-top navbar-light bg-light navbar-expand-sm">
+      <a class="navbar-brand text-hide" style="background-image: url('../static/img/icon.png?h=ca286ab3'); background-size: 50px 50px; width: 50px; height: 50px;" href="/">RTN</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+              <li class="nav-item active"><a class="nav-link" href="../nieuws/">Nieuws</a></li>
+              <li class="nav-item"><a class="nav-link" href="../agenda/">Agenda</a></li>
+              <li class="nav-item"><a class="nav-link" href="../training/">Training</a></li>
+              <li class="nav-item"><a class="nav-link" href="../opleiding/">Opleiding</a></li>
+              <li class="nav-item"><a class="nav-link" href="../lidmaatschap/">Lidmaatschap</a></li>
+              <li class="nav-item"><a class="nav-link" href="../links/">Links</a></li>
+              <li class="nav-item"><a class="nav-link" href="../over/">Over</a></li>
+              <li class="nav-item"><a class="nav-link" href="../todo/">TODO</a></li>
+        </ul>
+      </div>
     </nav>
   </header>
-  <div class="page">
-    
+  <div class="container">
+    <!--<h1>Rescue Team Ninove</h1>-->
+        
   <h1>Nieuws</h1>
 
 <div id="newsitems">
@@ -53,7 +68,7 @@
     <div class="title"><a href="../nieuws/2016/11/1/Jobstudenten_gezocht_voor_De_Kleine_Dender/">Jobstudenten gezocht voor De Kleine Dender</a></div>
     <div class="body"><p>Beste studenten</p>
 <p>Zwembad <em>De Kleine Dender</em> is op zoek naar jobstudenten.</p>
-<p><a href="../static/documents/sollicitatieformulier jobstudenten 2016 AGB Ninove.doc">De inschrijvingsfiche kan je hier downloaden.</a></p>
+<p><a href="../static/news/files/sollicitatieformulier jobstudenten 2016 AGB Ninove.doc">De inschrijvingsfiche kan je hier downloaden.</a></p>
 <p>Voor de herfstvakantie dienen de papieren ingevuld te worden voor 20 januari aan <a href="mailto:dekleinedender@ninove.be">dekleinedender@ninove.be</a>.</p>
 <p>Vriendelijke groeten</p>
 </div>
@@ -87,36 +102,71 @@
   
     
 
-  <div class="pagination">
-    
-      <span class="disabled">&laquo; Vorige</span>
-    
-    
-    
-    
-    
-    
-    
-    
-      | <span class="current">1</span>
-    
-      | <a href="../nieuws/page/2/">2</a>
-    
-    
-    
-      | <a href="../nieuws/page/3/">3</a>
-    
-      | <a href="../nieuws/page/4/">4</a>
-    
-    
-      | <a href="../nieuws/page/2/">Volgende &raquo;</a>
-    
-  </div>
+  <nav aria-label="news-pagination">
+    <ul class="pagination">
+      <li class="page-item disabled">
+        
+        <a href="../nieuws/#" class="page-link" tabindex="-1">
+          Vorige
+        </a>
+      </li>
+      
+      
+      
+      
+      
+      
+      
+      <li class="page-item active">
+        <a class="page-link" href="../nieuws/">
+          1
+        </a>
+      </li>
+      
+        <li class="page-item">
+          <a class="page-link" href="../nieuws/page/2/">
+            2
+          </a>
+        </li>
+      
+      
+      
+        <li class="page-item">
+          <a class="page-link" href="../nieuws/page/3/">
+            3
+          </a>
+        </li>
+      
+        <li class="page-item">
+          <a class="page-link" href="../nieuws/page/4/">
+            4
+          </a>
+        </li>
+      
+      <li class="page-item">
+        
+        <a class="page-link" href="../nieuws/page/2/" >
+          Volgende
+        </a>
+      </li>
+    </ul>
+  </nav>
 
   
 
+    <footer>
+      <nav aria-label="breadcrumb" role="navigation">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+              <a href="../">Start</a></li>
+            </li>
+          <li class="breadcrumb-item active">Nieuws</li>
+        </ol>
+      </nav>
+      &copy;2017 door Rescue Web Developer Team.
+    </footer>
   </div>
-  <footer>
-    &copy;2017 door Rescue Web Developer Team.
-  </footer>
+  <script src="../static/thirdparty/js/jquery-3.2.1.min.js?h=1055018c"></script>
+  <script src="../static/thirdparty/js/bootstrap.bundle.min.js?h=46d1f82f"></script>
 </body>
+</html>
