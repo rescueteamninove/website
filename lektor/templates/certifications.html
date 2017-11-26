@@ -8,7 +8,7 @@
     <ol start="{{ render_pagination_index_start(this.pagination) }}">
 {% for cert in this.pagination.items %}
     <li>
-        <a href="{{ cert | url }}">{{ cert.date_start | dateformat('yyyy') }}</a>
+        <a href="{{ cert | url }}">{{ cert.title_prefix }} {{ cert.date_start | dateformat('yyyy') }}</a>
     </li>
 {% endfor %}
     </ol>
