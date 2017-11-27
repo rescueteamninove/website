@@ -1,0 +1,19 @@
+{% from "macros/time.html" import date_long_tostr %}
+
+{% macro render_somecert_title(event, cert_event_title, link=False) -%}{%
+    if link
+        %}<a href="{{ event | url }}">{%
+    endif %}{{
+    cert_event_title }}{%
+    if link
+        %}</a>{%
+    endif %}{%
+endmacro %}
+
+{% macro render_certification_title(cert_event, link=False) -%}{{
+    render_somecert_title(cert_event, '{} {}'.format(cert_event.title_prefix, cert_event.date_start.year), link=link) }}{%
+endmacro %}
+
+{% macro render_recertification_title(recert_event, link=False) -%}{{
+    render_somecert_title(recert_event, date_long_tostr(recert_event.datetime_start), link=link) }}{%
+endmacro %}

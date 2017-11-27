@@ -1,12 +1,12 @@
 {% extends "layout.html" %}
+{% from "macros/certification.html" import render_certification_title %}
 {% from "macros/location.html" import render_location_name, render_location_address %}
 {% from "macros/person.html" import render_person_iterable, render_person_name, render_person_title %}
 {% from "macros/time.html" import date_long_tostr %}
 {% set year = this.date_start.year %}
-{% set title = 'Cursus HR - {} {}'.format(this.title_prefix, year) %}
 {% block title %}{{ title }}{% endblock %}
 {% block body %}
-<h1>{{ title }}</h1>
+<h1>Cursus HR - {{ render_certification_title(this) | title }}</h1>
 <p>
     In {{ year }} gaat de redderscursus door te:<br />
     {{ render_location_name(this.location) }}<br>{{ render_location_address(this.location) }}

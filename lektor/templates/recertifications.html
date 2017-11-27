@@ -1,5 +1,6 @@
 {% extends "layout.html" %}
 {% from "macros/pagination.html" import render_pagination, render_pagination_index_start %}
+{% from "macros/certification.html" import render_recertification_title %}
 {% from "macros/time.html" import date_long_tostr %}
 {% block title %}{{ this.title }}{% endblock %}
 {% block body %}
@@ -8,9 +9,7 @@
 <p>
     <ol start="{{ render_pagination_index_start(this.pagination) }}">
 {% for cert in this.pagination.items %}
-    <li>
-        <a href="{{ cert | url }}">{{ date_long_tostr(cert.datetime_start) }}</a>
-    </li>
+    <li>{{ render_recertification_title(cert, link=True) }}</li>
 {% endfor %}
     </ol>
 </p>

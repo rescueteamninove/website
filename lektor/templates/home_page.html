@@ -1,6 +1,12 @@
 {% extends "layout.html" %}
+{% from "macros/certification.html" import render_certification_title, render_recertification_title %}
+{% from "macros/time.html" import date_long_tostr %}
 {% block title %}{{ this.title }}{% endblock %}
+{% set most_recent_certification = site.get('/opleiding/cursus').children.first() %}
+{% set most_recent_recertification = site.get('/opleiding/bijscholing').children.first() %}
 {% block body %}
 <h1>{{ this.title }}</h1>
-{{ this.body }}
+{{ this.body.__html__() | replace('MOST_RECENT_CERTIFICATION', render_certification_title(most_recent_certification, link=True))
+                        | replace('MOST_RECENT_RECERTIFICATION', render_recertification_title(most_recent_recertification, link=True))
+}}
 {% endblock %}
