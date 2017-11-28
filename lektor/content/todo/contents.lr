@@ -4,6 +4,9 @@ body:
 * 'todo' pagina:
   * toevoegen (DONE)
   * verwijderen wanneer alle todo's gedaan zijn
+* SEO:
+  * sitemap.xml
+  * elke pagina metadata meegeven
 * Maak kalender
 * Cases:
   * jongere die een sportclub zoekt
