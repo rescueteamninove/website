@@ -2,7 +2,7 @@
 name = rescueteam.be website
 locale = nl
 url = https://www.rescueteam.be/
-url_style = absolute
+url_style = relative
 
 [packages]
 lektor-webpack-support = 0.3
