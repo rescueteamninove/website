@@ -14,7 +14,6 @@
 <u>Prijs:</u> &euro;{{ this.price }},-<br>
 <u>Contact:</u> {{ bag('person.education.email') | urlize() }}<br>
 <u>Docenten:</u> {{ render_person_iterable(this.teachers, separator=', ') }}<br>
-Plaatsen beperkt tot {{ this.capacity }} deelnemers.<br>
-Info en inschrijvingen: {{ render_person_title(this.contact, link=True) }}
+Plaatsen beperkt tot {{ this.capacity }} deelnemers.
 </p>
 {% endblock %}
