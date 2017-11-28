@@ -37,14 +37,16 @@
       <nav aria-label="breadcrumb" role="navigation">
         <ol class="breadcrumb">{%
           set root = site.get('/') %}{%
-          set parents = get_parents(this) %}{%
-          for parent in parents[:-1] %}
-            <li class="breadcrumb-item">
-              <a href="{{ parent | url }}">{{ parent.title }}</a></li>
-            </li>{%
-          endfor %}
-          <li class="breadcrumb-item active">{{ parents[-1].title }}</li>
-        </ol>
+          set parents = get_parents(this) %}{{ parents }}{%
+          if parents is iterable %}{%
+            for parent in parents[:-1] %}
+              <li class="breadcrumb-item">
+                <a href="{{ parent | url }}">{{ parent.title }}</a></li>
+              </li>{%
+            endfor %}
+          <li class="breadcrumb-item active">{{ parents[-1].title }}</li>{%
+          endif %}
+          </ol>
       </nav>
       <i class="fa fa-copyright"></i> {{ bag('site.year_lastchange') }} door <a href="mailto:{{ bag('person.admin_site.email') }}">{{ bag('person.admin_site.title') }}</a>
     </footer>

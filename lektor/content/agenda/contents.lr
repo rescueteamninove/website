@@ -1,5 +1,7 @@
 _model: Page
 ---
+_discoverable: no
+---
 title: Agenda
 ---
 body:

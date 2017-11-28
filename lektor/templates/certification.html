@@ -23,7 +23,7 @@
 <p><u>Praktijk-examen:</u> {{ date_long_tostr(this.date_exam_practice) }}</p>
 <strong>Alle data onder voorbehoud.</strong>
 <p><u>Cursusverantwoordelijke:</u> {{ bag('site.title_long') }}</p>
-<p><u>Docent:</u> {{ render_person_iterable(this.teachers, separator=', ') }}</p>
+<p><u>Docent(en):</u> {{ render_person_iterable(this.teachers, separator=', ') }}</p>
 <p><u>Contactpersoon:</u> {{ render_person_name(this.person_contact, link=True) }}</p>
 <p><u>Prijs:</u> &euro;{{ this.price }},-<br>
 Dit bedrag omvat:

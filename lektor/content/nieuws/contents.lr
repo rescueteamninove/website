@@ -1,5 +1,7 @@
 _model: newsitems
 ---
+_discoverable: no
+---
 title: Nieuws
 ---
 body:

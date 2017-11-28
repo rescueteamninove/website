@@ -1,3 +1,5 @@
 [project]
-name = rescueteam
+name = rescueteam.be website
 locale = nl
+url = https://www.rescueteam.be/
+url_style = absolute

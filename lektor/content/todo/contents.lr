@@ -1,5 +1,7 @@
 title: todo
 ---
+_discoverable: no
+---
 body:
 * 'todo' pagina:
   * toevoegen (DONE)

@@ -1,4 +1,4 @@
-_model: home_page
+_template: home_page.html
 ---
 title: Start
 ---

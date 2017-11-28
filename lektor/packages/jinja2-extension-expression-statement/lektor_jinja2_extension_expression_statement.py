@@ -1,7 +1,7 @@
 from lektor.pluginsystem import Plugin
-from lektor.db import Pad
 from lektor.sourceobj import SourceObject
 import jinja2.ext
+
 
 class Jinja2ExtensionExpressionStatementPlugin(Plugin):
     name = 'lektor-jinja2-extension-expression-statement'
@@ -10,9 +10,6 @@ class Jinja2ExtensionExpressionStatementPlugin(Plugin):
                   'that works like a variable expression but ignores the return value.'
 
     def on_process_template_context(self, context, **extra):
-        def test_function():
-            return 'Value from plugin %s' % self.name
-
         def get_parents(source_this: SourceObject):
             pad_this = source_this.pad
             record_root = pad_this.get_root(alt=source_this.alt)
@@ -27,10 +24,9 @@ class Jinja2ExtensionExpressionStatementPlugin(Plugin):
                         record_parent = record_child
                         break
                 else:
-                    raise RuntimeError('Cannot find a path from root to {}'.format(source_this.path))
+                    return None
             return records_parents
 
-        context['test_function'] = test_function
         context['get_parents'] = get_parents
 
     def on_setup_env(self, **extra):
