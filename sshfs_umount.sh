@@ -1,4 +1,4 @@
 #!/bin/bash
 
-sudo umount rescueteam.be
+sudo umount "$(dirname "$(readlink -f "$0")")/rescueteam.be"
 
