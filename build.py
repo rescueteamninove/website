@@ -8,12 +8,14 @@ import lektor.project
 import lektor.cli
 import sys
 import time
+import typing
 
 
 class Builder(object):
-    def __init__(self, src: Path, dst: Path):
+    def __init__(self, src: Path, dst: Path, build_flags: typing.List[str]):
         self._src = src
         self._dst = dst
+        self._build_flags = build_flags
 
         self._verbosity = 0
         self._ctx = lektor.cli.Context()
@@ -29,7 +31,7 @@ class Builder(object):
 
     @property
     def _buildflags(self) -> object:
-        return None
+        return self._build_flags
 
     def build(self):
         from lektor.builder import Builder
@@ -72,6 +74,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('-i', type=Path, dest='src', metavar='PATH', help='Input, path of Lektor project')
     parser.add_argument('-o', type=Path, dest='dst', metavar='PATH', help='Output, path of website')
+    parser.add_argument('-f', type=str, dest='build_flags', nargs=argparse.ZERO_OR_MORE, default=None, metavar='PATH', help='Build flag(s)')
     parser.add_argument('-r', type=str, dest='repo', default=DEFAULT_GIT_REPO, metavar='REPO', help='Remote git repository')
     parser.add_argument('action', choices=('build-init', 'rebuild', 'build-commit', 'build-push', ), help='Action to perform')
     ns = parser.parse_args()
@@ -79,10 +82,12 @@ def main():
         ns.src = Path(__file__).absolute().parent / 'lektor'
     if ns.dst is None:
         ns.dst = Path(__file__).absolute().parent / 'build'
+    if ns.build_flags is None:
+        ns.build_flags = ('webpack', )
 
     ns.dst.mkdir(exist_ok=True)
 
-    b = Builder(ns.src, ns.dst)
+    b = Builder(ns.src, ns.dst, ns.build_flags)
     if ns.action == 'build-init':
         r = git.Repo.init(ns.dst)
         github = r.create_remote('github', ns.repo)

@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# for basic loader
+npm install webpack babel-core node-sass babel-loader sass-loader css-loader url-loader style-loader file-loader extract-text-webpack-plugin
+# for bootstrap
+npm install bootstrap@4.0.0-beta.2
+npm install autoprefixer
+npm install jquery
+npm install popper.js
+
