@@ -9,13 +9,15 @@
     <title>{% block title %}Welcome{% endblock %} &mdash; {{ bag('site.title_short') }}</title>
 
     <link rel="stylesheet" href="{{ '/static/gen/styles.css' | asseturl }}">
+    <link rel="stylesheet" href="{{ '/static/css/rescueteam.css' | asseturl }}">
     <link rel="stylesheet" href="{{ '/static/thirdparty/css/font-awesome.min.css' | asseturl }}">
   </head>
 <body>
   <header>
     <nav class="navbar sticky-top navbar-light bg-light navbar-expand-sm">
-      <a class="navbar-brand text-hide" style="background-image: url('{{ '/static/img/icon.png' | asseturl }}'); background-size: 50px 50px; width: 50px; height: 50px;"
-         href="{{ site.root | url }}"></a>
+      <a class="navbar-brand text-hide navbar-logo" href="{{ site.root | url }}">
+        <img src="{{ '/static/img/icon.png' | asseturl }}"/>
+      </a><!--<div class="hidden-sm-up visible">RTN</div>-->
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -30,8 +32,10 @@
       </div>
     </nav>
   </header>
-  <div class="container">
+<div class="container" id="main_container">
 {% block body %}{% endblock %}
+</div>
+  <div class="footer">
     <footer>
       <nav aria-label="breadcrumb" role="navigation">
         <ol class="breadcrumb">{%
