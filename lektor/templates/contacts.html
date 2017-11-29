@@ -3,7 +3,7 @@
 {% block title %}{{ this.title }}{% endblock %}
 {% block body %}
 <h1>{{ this.title }}</h1>
-<ul>
+<ul class="fa-ul">
 {% for block in this.contactperson_flows.blocks %}{{
     render_person(block.person) }}{%
 endfor %}

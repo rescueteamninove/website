@@ -1,3 +1,8 @@
-// Bootstrap and its default variables
+// Import theme
+@import "theme";
 
+// Bootstrap and its default variables
 @import "~bootstrap/scss/bootstrap";
+
+// Import modification for rtn site
+@import "rtn";

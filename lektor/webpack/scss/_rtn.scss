@@ -1,0 +1,17 @@
+.navbar {
+    .navbar-collapse {
+        .navbar-nav {
+            font-size: 120%;
+            font-variant: small-caps;
+            .nav-item {
+                &.active {
+                    font-weight: bolder;
+                }
+            }
+        }
+    }
+}
+
+.bg-third {
+    background-color: $third !important;
+}

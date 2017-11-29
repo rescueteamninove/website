@@ -10,19 +10,19 @@ endmacro %}
 
 {% macro render_person(person_str) -%}{%
     call(title, name, phone, email) get_person(person_str) %}
-        <li> {%
+        <li><i class="fa-li fa fa-address-book-o"></i>{%
             if title %}
-                <strong>{{ title }}</strong> {%
+            <strong>{{ title }}</strong> {%
             endif %}
-            <ul> {%
+            <ul class="fa-ul"> {%
                 if name %}
-                    <li>{{ name }}</li> {%
+                    <li><i class="fa-li fa fa-info"></i>{{ name }}</li> {%
                 endif %}{%
                 if phone %}
-                    <li>{{ phone }}</li> {%
+                    <li><i class="fa-li fa fa-phone"></i><li>{{ phone }}</li> {%
                 endif %}{%
                 if email %}
-                    <li><a href="mailto:{{ email }}">{{ email }}</a></li> {%
+                    <li><i class="fa-li fa fa-envelope-o"></i><li><a href="mailto:{{ email }}">{{ email }}</a></li> {%
                 endif %}
             </ul>
         </li> {%
