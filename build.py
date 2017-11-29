@@ -84,7 +84,7 @@ def main():
         ns.dst = Path(__file__).absolute().parent / 'build'
     if ns.build_flags is None:
         ns.build_flags = (
-            'minify',
+            # 'minify',
             'webpack',
         )
 
