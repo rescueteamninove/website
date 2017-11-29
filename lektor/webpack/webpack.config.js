@@ -35,7 +35,7 @@ config = {
       allChunks: true
     }),
     new webpack.optimize.UglifyJsPlugin(),
-    new webpack.ProvidePlugin({ // inject ES5 modules as global vars
+    new webpack.ProvidePlugin({
       $: 'jquery',
       jQuery: 'jquery',
       'window.jQuery': 'jquery',
