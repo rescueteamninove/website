@@ -6,15 +6,6 @@ html {
     padding-top: 1rem;
 }
 
-.navbar-logo {
-    background-color: white;
-    border-radius: 20%;
-}
-
-.navbar-brand {
-    padding: 0;
-}
-
 .navbar img {
     width: 50px;
     height: 50px;
@@ -25,14 +16,38 @@ html {
 
 body {
    position: relative;
-   padding-bottom: 6rem;
+   padding-bottom: 9rem;
    min-height: 100%;
 }
 
-.footer {
-    padding-top: 1em;
+footer {
+    padding-top: 0.8em;
     position: absolute;
     right: 0;
     bottom: 0;
     left: 0;
+}
+
+#footer_nav {
+    padding-top: 0.8em;
+    padding-bottom: 0.8em;
+}
+
+#footer_contact {
+    padding-top: 0.8em;
+    padding-bottom: 0.8em;
+}
+/*
+.contact-option {
+    padding: 1rem 1.75rem;
+    font-size: 1.25rem;
+    border-radius: 50%;
+    border-width: 2px;
+    font-size: 150%;
+}
+*/
+
+.btn-contact {
+  font-size: 1.25rem;
+  line-height: 2rem;
 }
