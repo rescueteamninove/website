@@ -83,7 +83,10 @@ def main():
     if ns.dst is None:
         ns.dst = Path(__file__).absolute().parent / 'build'
     if ns.build_flags is None:
-        ns.build_flags = ('webpack', )
+        ns.build_flags = (
+            'minify',
+            'webpack',
+        )
 
     ns.dst.mkdir(exist_ok=True)
 

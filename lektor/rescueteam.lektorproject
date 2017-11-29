@@ -6,3 +6,4 @@ url_style = relative
 
 [packages]
 lektor-webpack-support = 0.3
+lektor-minify = 1.2
