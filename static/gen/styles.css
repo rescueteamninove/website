@@ -5874,6 +5874,28 @@ a.text-dark:focus, a.text-dark:hover {
 .invisible {
   visibility: hidden !important; }
 
+@media (max-width: 575px) {
+  .navbar-expand-sm .navbar-collapse .navbar-nav .nav-item .nav-link {
+    background-color: red; } }
+
+@media (max-width: 767px) {
+  .navbar-expand-md .navbar-collapse .navbar-nav .nav-item .nav-link {
+    background-color: red; } }
+
+@media (max-width: 991px) {
+  .navbar-expand-lg .navbar-collapse .navbar-nav .nav-item .nav-link {
+    background-color: red; } }
+
+@media (max-width: 1199px) {
+  .navbar-expand-xl .navbar-collapse .navbar-nav .nav-item .nav-link {
+    background-color: red; } }
+
+.navbar-expand .navbar-collapse .navbar-nav .nav-item .nav-link {
+  background-color: red; }
+
+a {
+  link-color: grey; }
+
 .navbar .navbar-collapse .navbar-nav {
   font-size: 120%;
   font-variant: small-caps; }

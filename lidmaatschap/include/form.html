@@ -1,14 +1,15 @@
+
 <!doctype html>
 <html lang="nl">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="icon" href="https://www.rescueteam.be/beta/static/img/icon.ico?h=5ef6699d">
-    <meta name="description" content="Inschrijvingsformulier voor een activiteit bij RTN.">
+    <meta name="description" content="Rescue Team Ninove is een zwemclub met nadruk op redderstechieken die wekelijks traint in het zwembad De Kleine Dender te Ninove. Onze club organiseert jaarlijks een cursus Hoger Redder. Twee keer per jaar wordt een bijscholing Hoger Redder georganiseerd.">
     <meta name="author" content="Rescue Team Ninove">
     <meta name="keywords" content="Redder,Opleiding,Bijscholing,zwemclub,sport,zwemmen,Ninove,Hoger,Rescue,Geraardsbergen,Aalst,Aalter,Galmaarden,Bever,Herne">
     <meta name="generator" content="Lektor 3.0.1">
-    <title>Lid worden bij RTN &mdash; RTN</title>
+    <title>Registreren voor een activiteit &mdash; RTN</title>
 
     <link rel="stylesheet" href="https://www.rescueteam.be/beta/static/gen/styles.css?h=8fdcce92">
     <link rel="stylesheet" href="https://www.rescueteam.be/beta/static/css/rescueteam.css?h=95e0132e">
@@ -37,11 +38,11 @@
   </header>
   <div class="container" id="main_container">
   
-<h1>Lid worden bij RTN</h1>
-<p>Vul het onderstaande formulier in om je in te schrijven.</p>
+<h1>Registreren voor een activiteit</h1>
+<p>Vul het onderstaande formulier in om je te registreren voor een activiteit.</p>
 <p>Wij nemen dan zo spoedig mogelijk contact met je op.</p>
 
-<form id="enlist_form" action="https://www.rescueteam.be/beta/lidmaatschap/inschrijven/send.php" method="post" novalidate>
+<form id="enlist_form" action="https://www.rescueteam.be/beta/lidmaatschap/inschrijven2/index.php" method="post" novalidate>
   <div class="form-row">
     <div class="form-group col-12">
       <label for="inputState">Activiteit</label>
@@ -51,9 +52,9 @@
         </div>
         <select id="inputState" name="activity" class="form-control" required>
           <option disabled="disabled" value="" selected>Kies activiteit</option>
-          <option value="act_a">Lidmaatschap (&euro; 90)</option>
-          <option value="act_b">Reddersopleiding (&euro; 300)</option>
-          <option value="act_c">Bijscholing (&euro; 50)</option>
+          <option value="lid">Lidmaatschap RTN (&euro; 90)</option>
+          <option value="ro0">Opleiding Hoger Redder 2018 (&euro; 300)</option>
+          <option value="bs0">Bijscholing Hoger Redder 23/12/2017 (&euro; 50)</option>
         </select>
       </div>
     </div>
@@ -88,28 +89,22 @@
         <input type="text" name="street" id="inputStreet" placeholder="Straat + straatnummer" class="form-control" required>
       </div>
     </div>
-      <!--
-    <div class="form-group col-sm-2">
-      <label for="streetnumber">Nummer</label>
-      <input type="text" class="form-control" id="streetnumber" placeholder="Nummer" required>
-    </div>
-    -->
   </div>
   <div class="form-row">
     <div class="form-group col-sm-3">
-      <label for="inputPostcode">Postcode</label>
+      <label for="inputPostalcode">Postcode</label>
       <div class="input-group mb-2 mr-sm-2 mb-sm-0">
         <div class="input-group-addon">
           <i class="fa-fw">#</i>
         </div>
-      <input type="number" name="postcode" id="inputPostcode" placeholder="Postcode" class="form-control" required>
+      <input type="number" name="postalcode" id="inputPostalcode" placeholder="Postcode" class="form-control" required>
       </div>
     </div>
     <div class="form-group col-sm-9">
       <label for="inputCity">Stad</label>
       <div class="input-group mb-2 mr-sm-2 mb-sm-0">
         <div class="input-group-addon">
-          <i class="fa fa-fw fa-map-marker"></i>
+          <i class="fa fa-fw fa-map-signs"></i>
         </div>
       <input type="text" name="city" id="inputCity" placeholder="Stad" class="form-control" required>
       </div>
@@ -161,32 +156,29 @@
   </div>
   <button type="submit" class="btn btn-primary">Versturen</button>
 </form>
+
 <script>
 (function() {
   'use strict';
 
   window.addEventListener('load', function() {
-    var form = document.getElementById('enlist_form');
+    let form = document.getElementById('enlist_form');
     form.addEventListener('submit', function(event) {
-      var contactEntries = [
+      let contactEntries = [
         document.getElementById("inputMobile"),
         document.getElementById("inputPhone"),
       ];
-      /*
-      const contactsValid = contactEntries.reduce(
-        ((accumulator, currentValue) => accumulator || (currentValue.value.trim() != '')),
-        false
-      );
-      */
-      var contactsValid = false;
+
+      let contactsValid = false;
       for (let entry of contactEntries) {
         contactsValid = contactsValid || (entry.value.trim() != '');
       }
+
       for (let entry of contactEntries) {
         entry.required = contactsValid ? undefined : true;
       }
 
-      var formValid = form.checkValidity();
+      let formValid = form.checkValidity();
 
       if (!formValid) {
         event.preventDefault();
@@ -197,6 +189,7 @@
   }, false);
 })();
 </script>
+
 
   </div>
   <footer>
