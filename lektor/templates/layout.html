@@ -3,9 +3,16 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="{{ bag('site.description') }}">
+    <link rel="icon" href="{{ '/static/img/icon.png' | asseturl }}">
+    <meta name="description" content="{%
+      if this.meta_description %}{{
+        this.meta_description }}{%
+      else %}{{
+        bag('site.description') }}{%
+      endif %}">
     <meta name="author" content="{{ bag('site.title_long') }}">
-    <link rel="icon" href="{{ '/static/img/icon.ico' | asseturl }}">
+    <meta name="keywords" content="{{ bag('site.keywords') }}">
+    <meta name="generator" content="{{ generator_name_version }}">
     <title>{% block title %}Welcome{% endblock %} &mdash; {{ bag('site.title_short') }}</title>
 
     <link rel="stylesheet" href="{{ '/static/gen/styles.css' | asseturl }}">
@@ -59,11 +66,15 @@
     <div class="footer_contact bg-light" id="footer_contact">
       <div class="container text-center">
           Contacteer ons:
-    {% set contact_options = (('mailto:{}'.format(bag('person.admin_site.email')), 'fa-envelope-o'), (bag('site.facebook'), 'fa-facebook'), ) %}
+    {% set contact_options = (
+        ('mailto:{}'.format(bag('person.admin_site.email')), 'fa-envelope-o', False),
+        (bag('site.facebook'), 'fa-facebook', True),
+        ) %}
           <ul class="list-inline contact-options ">
-    {% for href, fa in contact_options %}
+    {% for href, fa, newWindow in contact_options %}
             <li class="list-inline-item">
-              <a class="btn btn-outline-dark btn-contact text-center rounded-circle" href="{{ href }}">
+              <a class="btn btn-outline-dark btn-contact text-center rounded-circle" href="{{ href }}"{%
+                 if newWindow %} target="_blank"{%endif%}>
                 <i class="fa {{ fa }} fa-fw" style="vertical-align:middle;"></i>
               </a>
             </li>

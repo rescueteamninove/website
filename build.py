@@ -49,7 +49,7 @@ class Builder(object):
             builder.prune()
             return failures == 0
 
-        reporter = CliReporter(env)
+        reporter = CliReporter(env, verbosity=True)
         with reporter:
             success = _build()
 

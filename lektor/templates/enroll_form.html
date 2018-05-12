@@ -1,8 +1,9 @@
+{% set activities = get_club_activities() %}
 {% extends "page.html" %}
 {% block body %}
 <h1>{{ this.title }}</h1>
 {{ this.body }}
-<form id="enlist_form" action="{{ 'send.php' | url }}" method="post" novalidate>
+<form id="enlist_form" action="{{ site.get('/lidmaatschap/inschrijven2/') | url }}" method="post" novalidate>
   <div class="form-row">
     <div class="form-group col-12">
       <label for="inputState">Activiteit</label>
@@ -11,10 +12,10 @@
           <i class="fa fa-fw fa-crosshairs"></i>
         </div>
         <select id="inputState" name="activity" class="form-control" required>
-          <option disabled="disabled" value="" selected>Kies activiteit</option>
-          <option value="act_a">Lidmaatschap (&euro; 90)</option>
-          <option value="act_b">Reddersopleiding (&euro; 300)</option>
-          <option value="act_c">Bijscholing (&euro; 50)</option>
+          <option disabled="disabled" value="" selected>Kies activiteit</option>{%
+            for id, activity in activities.items() %}
+          <option value="{{ id }}">{{ activity.description }} (&euro; {{ activity.price }})</option>{%
+            endfor%}
         </select>
       </div>
     </div>
@@ -49,28 +50,22 @@
         <input type="text" name="street" id="inputStreet" placeholder="Straat + straatnummer" class="form-control" required>
       </div>
     </div>
-      <!--
-    <div class="form-group col-sm-2">
-      <label for="streetnumber">Nummer</label>
-      <input type="text" class="form-control" id="streetnumber" placeholder="Nummer" required>
-    </div>
-    -->
   </div>
   <div class="form-row">
     <div class="form-group col-sm-3">
-      <label for="inputPostcode">Postcode</label>
+      <label for="inputPostalcode">Postcode</label>
       <div class="input-group mb-2 mr-sm-2 mb-sm-0">
         <div class="input-group-addon">
           <i class="fa-fw">#</i>
         </div>
-      <input type="number" name="postcode" id="inputPostcode" placeholder="Postcode" class="form-control" required>
+      <input type="number" name="postalcode" id="inputPostalcode" placeholder="Postcode" class="form-control" required>
       </div>
     </div>
     <div class="form-group col-sm-9">
       <label for="inputCity">Stad</label>
       <div class="input-group mb-2 mr-sm-2 mb-sm-0">
         <div class="input-group-addon">
-          <i class="fa fa-fw fa-map-marker"></i>
+          <i class="fa fa-fw fa-map-signs"></i>
         </div>
       <input type="text" name="city" id="inputCity" placeholder="Stad" class="form-control" required>
       </div>
@@ -122,32 +117,29 @@
   </div>
   <button type="submit" class="btn btn-primary">Versturen</button>
 </form>
+{% raw %}
 <script>
 (function() {
   'use strict';
 
   window.addEventListener('load', function() {
-    var form = document.getElementById('enlist_form');
+    let form = document.getElementById('enlist_form');
     form.addEventListener('submit', function(event) {
-      var contactEntries = [
+      let contactEntries = [
         document.getElementById("inputMobile"),
         document.getElementById("inputPhone"),
       ];
-      /*
-      const contactsValid = contactEntries.reduce(
-        ((accumulator, currentValue) => accumulator || (currentValue.value.trim() != '')),
-        false
-      );
-      */
-      var contactsValid = false;
+
+      let contactsValid = false;
       for (let entry of contactEntries) {
         contactsValid = contactsValid || (entry.value.trim() != '');
       }
+
       for (let entry of contactEntries) {
         entry.required = contactsValid ? undefined : true;
       }
 
-      var formValid = form.checkValidity();
+      let formValid = form.checkValidity();
 
       if (!formValid) {
         event.preventDefault();
@@ -158,4 +150,5 @@
   }, false);
 })();
 </script>
+{% endraw %}
 {% endblock %}

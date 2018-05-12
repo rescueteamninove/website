@@ -1,13 +1,13 @@
-published: yes
+published: no
 ---
 meta_description:
-RTN organiseert in voorjaar 2017 een opleiding Hoger Redder.
+RTN organiseert in voorjaar 2019 een opleiding Hoger Redder.
 ---
 registration_open: no
 ---
 location: gaversbad
 ---
-date_start: 2017-01-07
+date_start: 2019-01-05
 ---
 title_prefix: voorjaar
 ---
@@ -16,17 +16,17 @@ time_lesson_start: 15u30
 time_lesson_stop: 20u30
 ---
 dates_lesson:
-7, 14, 21 en 28 januari
-4, 11, 18 en 25 februari
-4, 11, 18 en 25 maart
-1 april
+5, 12, 19 en 26 januari
+2, 9, 16 en 23 februari
+2, 9, 16, 23 en 30 maart
 ---
-date_exam_theory: 2017-04-15
+date_exam_theory: 2019-04-13
 ---
-date_exam_practice: 2017-04-22
+date_exam_practice: 2019-04-20
 ---
 teachers:
 docent_ivo_roelandt
+docent_jonatan_helpers
 ---
 person_contact:
 enrollment
@@ -48,13 +48,13 @@ information_common:
 
 Een cursus duurt 64 uur.
 
-Deze uren worden verdeeld over 5 modules:
+Deze uren worden verdeeld over 6 modules:
 * Theorie redding, reanimatie en EHBO (20 uur)
 * Praktijk redding basisredder (8 uur)
 * Praktijk redding hoger redder (12 uur)
 * Praktijk reanimatie (14 uur)
 * Praktijk EHBO (6 uur)
-* Nieuwe module (4 uur)
+* Functioneren in een zwemgelegenheid (4 uur)
 
 ### Reddersproef en reglementen
 

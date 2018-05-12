@@ -1,0 +1,31 @@
+_model: enroll_form
+---
+_slug: form.html
+---
+_discoverable: no
+---
+title:
+Registreren voor een activiteit
+---
+body:
+Vul het onderstaande formulier in om je te registreren voor een activiteit.
+
+Wij nemen dan zo spoedig mogelijk contact met je op.
+---
+label_enlist:
+Lidmaatschap RTN
+---
+label_education:
+Opleiding Hoger Redder
+---
+label_reeducation:
+Bijscholing Hoger Redder
+---
+msg_success:
+Uw verzoek werd succesvol geregistreerd. Wij nemen contact met u op.
+---
+msg_bad_data:
+Sommige data was foutief. Corrigeer deze en probeer opnieuw.
+---
+msg_mail_problem:
+Intern probleem. Probeer later opnieuw. Contacteer ons moest dit probleem aanhouden.

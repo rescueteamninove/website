@@ -1,0 +1,44 @@
+_model: enroll_mail
+---
+_discoverable: no
+---
+_hidden: yes
+---
+from:
+admin_site
+---
+reply_to:
+admin_site
+---
+cc:
+admin_site
+---
+title:
+Nieuwe registratie voor {activity} - {firstname} {surname}
+---
+body:
+Hallo,
+
+Zopas werd een registratie ontvangen voor:
+
+{activity} twv &euro;{price}
+
+Door:
+
+- Voornaam: {firstname}
+- Familienaam: {surname}
+- Straat: {street}
+- Postcode: {postalcode}
+- Stad: {city}
+- E-Mail: {email}
+- Telefoon: {phone}
+- GSM: {mobile}
+- Geboortedatum: {birthdate}
+
+Dit is g&eacute;&eacute;n bevestiging van inschrijving!
+
+Wij nemen zo spoedig mogelijk contact met u op.
+
+Bedankt voor het vertrouwen!
+
+Rescue Team Ninove

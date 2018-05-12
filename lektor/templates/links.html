@@ -4,7 +4,7 @@
 <h1>Links</h1>
 <h2>Zwemclubs</h2>
 <ul>
-{% for key in this.swimming_clubs%}
+{% for key in this.swimming_clubs %}
     {% set aka =  bag('club', '{}.aka'.format(key)) %}
     <li><a href="{{ bag('club', '{}.url'.format(key)) }}">{{ bag('club', '{}.name'.format(key)) }}</a>
     {% if aka %}
@@ -13,7 +13,7 @@
 {% endfor %}</ul>
 <h2>Zwembaden</h2>
 <ul>
-{% for key in this.swimming_pools%}
+{% for key in this.swimming_pools %}
     <li><address><strong>{{ bag('location', '{}.name'.format(key)) }}</strong><br>
     {{ '<br>'.join(bag('location', '{}.address'.format(key)).split(',')) | safe}}<br>
     Telefoon: {{ bag('location', '{}.phone'.format(key)) }}<br>
