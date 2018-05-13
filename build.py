@@ -44,7 +44,7 @@ class Builder(object):
         def _build():
             builder = Builder(env.new_pad(), str(self._dst),
                               buildstate_path=self._buildstate,
-                              build_flags=self._buildflags)
+                              extra_flags=self._buildflags)
             failures = builder.build_all()
             builder.prune()
             return failures == 0
@@ -74,8 +74,8 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('-i', type=Path, dest='src', metavar='PATH', help='Input, path of Lektor project')
     parser.add_argument('-o', type=Path, dest='dst', metavar='PATH', help='Output, path of website')
-    parser.add_argument('-f', type=str, dest='build_flags', nargs=argparse.ZERO_OR_MORE, default=None, metavar='PATH', help='Build flag(s)')
-    parser.add_argument('-r', type=str, dest='repo', default=DEFAULT_GIT_REPO, metavar='REPO', help='Remote git repository')
+    parser.add_argument('-f', type=str, dest='build_flags', nargs=argparse.ZERO_OR_MORE, default=None, metavar='VAR', help='Build flag(s)')
+    parser.add_argument('-r', type=str, dest='repo', default=DEFAULT_GIT_REPO, metavar='REPO', help='Remote git repository (default:{})'.format(DEFAULT_GIT_REPO))
     parser.add_argument('action', choices=('build-init', 'rebuild', 'build-commit', 'build-push', ), help='Action to perform')
     ns = parser.parse_args()
     if ns.src is None:
@@ -83,10 +83,10 @@ def main():
     if ns.dst is None:
         ns.dst = Path(__file__).absolute().parent / 'build'
     if ns.build_flags is None:
-        ns.build_flags = (
+        ns.build_flags = [
             # 'minify',
             'webpack',
-        )
+        ]
 
     ns.dst.mkdir(exist_ok=True)
 
