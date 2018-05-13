@@ -9,7 +9,7 @@
 <h1>Cursus HR - {{ render_certification_title(this) | title }}</h1>
 <p>
     In {{ year }} gaat de redderscursus door te:<br />
-    {{ render_location_name(this.location) }}<br>{{ render_location_address(this.location) }}
+    {{ render_location_name(this.location) }}<br />{{ render_location_address(this.location) }}
 </p>
 <h2>Belangrijke data</h2>
 <p><u>Startdatum:</u> {{ date_long_tostr(this.date_start) }}</p>
@@ -25,7 +25,7 @@
 <p><u>Cursusverantwoordelijke:</u> {{ bag('site.title_long') }}</p>
 <p><u>Docent(en):</u> {{ render_person_iterable(this.teachers, separator=', ') }}</p>
 <p><u>Contactpersoon:</u> {{ render_person_name(this.person_contact, link=True) }}</p>
-<p><u>Prijs:</u> &euro;{{ this.price }},-<br>
+<p><u>Prijs:</u> &euro;{{ this.price }},-<br />
 Dit bedrag omvat:
 <ul>
 {% for benefit in this.benefits %}

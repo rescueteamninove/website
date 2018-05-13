@@ -48,7 +48,7 @@ if ($request_method != 'POST') {
 }
 
 foreach($_POST as $k => $v) {
-  echo $k . '->' . $v . '<br>';
+  echo $k . '->' . $v . '<br />';
 }
 
 

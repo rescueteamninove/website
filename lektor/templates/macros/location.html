@@ -27,7 +27,7 @@ endmacro %}
     </ul> {%-
 endmacro %}
 
-{% macro render_location_address(location_str, separator='<br>\n') -%}{%
+{% macro render_location_address(location_str, separator='<br />\n') -%}{%
     set address = bag('location.{}.address'.format(location_str)).split(',') %}{{
     separator.join(address) | safe }}{%-
 endmacro %}
