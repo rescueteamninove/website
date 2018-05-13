@@ -1,22 +1,18 @@
-<!doctype html>
+{% from "macros/meta.html" import render_meta_description
+%}<!doctype html>
 <html lang="nl">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="icon" href="{{ '/static/img/icon.png' | asseturl }}">
-    <meta name="description" content="{%
-      if this.meta_description %}{{
-        this.meta_description }}{%
-      else %}{{
-        bag('site.description') }}{%
-      endif %}">
-    <meta name="author" content="{{ bag('site.title_long') }}">
-    <meta name="keywords" content="{{ bag('site.keywords') }}">
-    <meta name="generator" content="{{ generator_name_version }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link rel="icon" href="{{ '/static/img/icon.png' | asseturl }}" />
+    <meta name="description" content="{{ render_meta_description(this) }}" />
+    <meta name="author" content="{{ bag('site.title_long') }}" />
+    <meta name="keywords" content="{{ bag('site.keywords') }}" />
+    <meta name="generator" content="{{ generator_name_version }}" />
     <title>{% block title %}Welcome{% endblock %} &mdash; {{ bag('site.title_short') }}</title>
-    <link rel="stylesheet" href="{{ '/static/gen/styles.css' | asseturl }}">
-    <link rel="stylesheet" href="{{ '/static/css/rescueteam.css' | asseturl }}">
-    <link rel="stylesheet" href="{{ '/static/thirdparty/css/font-awesome.min.css' | asseturl }}">
+    <link rel="stylesheet" href="{{ '/static/gen/styles.css' | asseturl }}" />
+    <link rel="stylesheet" href="{{ '/static/css/rescueteam.css' | asseturl }}" />
+    <link rel="stylesheet" href="{{ '/static/thirdparty/css/font-awesome.min.css' | asseturl }}" />
   </head>
 <body>
   <header>

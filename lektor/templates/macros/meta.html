@@ -1,0 +1,7 @@
+{% macro render_meta_description(this) %}{%
+  if this.meta_description %}{{
+    this.meta_description }}{%
+  else %}{{
+    bag('site.description') }}{%
+  endif %}{%
+endmacro %}

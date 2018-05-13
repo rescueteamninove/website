@@ -12,8 +12,12 @@
 <u>Tijd:</u> {{ time_tostr(this.datetime_start) }} - {{ time_tostr(this.datetime_stop) }}<br>
 <u>Plaats:</u> {{ render_location_name(this.location) }}, {{ render_location_address(this.location, separator=', ') }}<br>
 <u>Prijs:</u> &euro;{{ this.price }},-<br>
-<u>Contact:</u> {{ bag('person.education.email') | urlize() }}<br>
-<u>Docenten:</u> {{ render_person_iterable(this.teachers, separator=', ') }}<br>
-Plaatsen beperkt tot {{ this.capacity }} deelnemers.
+<u>Contact:</u> {{ bag('person.education.email') }}<br>
+<u>Docenten:</u> {{ render_person_iterable(this.teachers, separator=', ') }}
+Plaatsen beperkt tot {{ this.capacity }} deelnemers.{%
+if not this.registration_open %}<br>
+    Deze opleiding is volzet.
+else %}{%
+endif %}
 </p>
 {% endblock %}
