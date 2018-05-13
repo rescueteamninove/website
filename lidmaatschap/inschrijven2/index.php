@@ -3,7 +3,7 @@ error_reporting(E_ALL | E_STRICT);
 ini_set('display_errors', 'On');
 
 $request_method = $_SERVER['REQUEST_METHOD'];
-$forward_url = "https://www.rescueteam.be/beta/lidmaatschap/inschrijven2/index.php";
+$forward_url = "/lidmaatschap/inschrijven2/index.php";
 
 $id_to_activity = array(
 
@@ -12,13 +12,8 @@ $id_to_activity = array(
         "price" => 90,
         ),
 
-    "ro0" => array(
-        "description" => "Opleiding Hoger Redder 2018",
-        "price" => 300,
-        ),
-
     "bs0" => array(
-        "description" => "Bijscholing Hoger Redder 23/12/2017",
+        "description" => "Bijscholing Hoger Redder 30/6/2018",
         "price" => 50,
         ),
 
