@@ -1,50 +1,47 @@
 var webpack = require('webpack');
 var path = require('path');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+
 config = {
+  mode: 'production', // 'production'
   entry: {
     'app': './js/main.js',
-    'styles': './scss/main.scss'
+    'styles': './scss/main.scss',
   },
   output: {
     path: path.resolve(__dirname, '../assets/static/gen'),
-    filename: '[name].js',
-    publicPath: 'assets/static/gen/'
+    filename: '[name].bundle.js',
   },
-  devtool: '#cheap-module-source-map',
+  devtool: false,
   resolve: {
     modules: ['node_modules'],
     extensions: ['.js', '.json']
   },
   module: {
-    loaders: [
-      { test: /\.js$/, exclude: /node_modules/,
-        use: 'babel-loader' },
-      { test: /\.scss$/,
-        use: ExtractTextPlugin.extract( {
-          fallback: 'style-loader', use: ['css-loader', 'sass-loader'] } ) },
-      { test: /\.css$/,
-        use: ExtractTextPlugin.extract(
-          'style-loader', 'css-loader') },
-      { test: /\.(woff2?|ttf|eot|svg|png|jpe?g|gif)$/,
-        use: 'file' }
-    ]
+    rules: [
+      { test: /\.js$/, exclude: /node_modules/, use: 'babel-loader', },
+      { test: /\.scss$/, use: [MiniCssExtractPlugin.loader, 'css-loader', {
+            loader: 'postcss-loader',
+            options: { plugins: function () { return [ require('precss'), require('autoprefixer'), ];}, },
+          }, 'sass-loader', ], },
+      { test: /\.css$/, use: [MiniCssExtractPlugin.loader, 'css-loader', ], },
+      { test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: "url-loader?limit=10000&mimetype=application/font-woff" },
+      { test: /\.(ttf|eot|svg|png|jpe?g|gif)$/, use: 'file-loader' },
+    ],
   },
   plugins: [
-    new ExtractTextPlugin('styles.css', {
-      allChunks: true
+    new MiniCssExtractPlugin({
+      filename: '[name].css',
+      chunkFilename: '[id].css',
     }),
-    new webpack.optimize.UglifyJsPlugin(),
     new webpack.ProvidePlugin({
       $: 'jquery',
       jQuery: 'jquery',
       'window.jQuery': 'jquery',
       Popper: ['popper.js', 'default'],
       Tether: 'tether'
-    })
-  ]
+    }),
+  ],
 };
 
-module.exports = [
-    config,
-];
+module.exports = config;

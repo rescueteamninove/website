@@ -9,3 +9,6 @@
 
 // Some extra properties for navbars
 @import "navbar_extra";
+
+$fa-font-path: "~font-awesome/fonts";
+@import "~font-awesome/scss/font-awesome";
