@@ -3,7 +3,6 @@ error_reporting(E_ALL | E_STRICT);
 ini_set('display_errors', 'On');
 
 $request_method = $_SERVER['REQUEST_METHOD'];
-$forward_url = "/lidmaatschap/inschrijven2/index.php";
 
 $id_to_activity = array(
 
@@ -20,7 +19,7 @@ $id_to_activity = array(
 );
 
 class Enroll {
-    function Enroll($keymap) {
+    function __construct($keymap) {
         $keys_req = array(
             "activity",
             "firstname",
@@ -59,6 +58,10 @@ class Enroll {
         }
     }
 
+    function email() {
+        return $this->data["email"];
+    }
+
     function get_kv_data($id_to_activity) {
         $kv = array();
 
@@ -90,11 +93,11 @@ class Enroll {
 
         $bad_phones = array();
         foreach($this->phones as $key => $val) {
-            if (!empty($val)) {
+            if (empty($val)) {
                 $bad_phones[] = $key;
             }
         }
-        if (count($bad_phones) != count($this->phones)) {
+        if (count($bad_phones) == count($this->phones)) {
             $bad_keys = array_merge($bad_keys, array_keys($this->phones));
         }
         return $bad_keys;
@@ -108,26 +111,17 @@ class Enroll {
 
 
 
+function send_mail($to, $enroll) {
+    global $id_to_activity;
 
-if ($request_method == 'POST') {
-    $enroll = new Enroll($_POST);
+    $person_kv = $enroll->get_kv_data($id_to_activity);
 
-    $valid = 1;
-    $msg = "Uw verzoek werd succesvol geregistreerd. Wij nemen contact met u op.";
-
-    $valid = $enroll->valid();
-    if (!$valid) {
-        $msg = "Sommige data was foutief. Corrigeer deze en probeer opnieuw.";
-    } else {
-        $person_kv = $enroll->get_kv_data($id_to_activity);
-
-        $mail_address = "admin@rescueteam.be";
-        $mail_subject = "Nieuwe registratie voor {activity} - {firstname} {surname}";
-        $mail_message = <<<EOM
+    $mail_subject = "Nieuwe registratie voor {activity} - {firstname} {surname}";
+    $mail_message = <<<EOM
 <p>Hallo,</p>
-<p>Zopas werd een registratie ontvangen voor:</p>
-<p>{activity} twv &euro;{price}</p>
-<p>Door:</p>
+<p>Zopas werd een registratie ontvangen voor</p>
+<p>{activity} twv €{price},-</p>
+<p>door</p>
 <ul>
 <li>Voornaam: {firstname}</li>
 <li>Familienaam: {surname}</li>
@@ -143,51 +137,64 @@ if ($request_method == 'POST') {
 <p>Wij nemen zo spoedig mogelijk contact met u op.</p>
 <p>Bedankt voor het vertrouwen!</p>
 <p>Rescue Team Ninove</p>
-
 EOM;
-        $mail_subject = str_replace(array_keys($person_kv), array_values($person_kv), $mail_subject);
-        $mail_message = str_replace(array_keys($person_kv), array_values($person_kv), $mail_message);
+    $mail_subject = str_replace(array_keys($person_kv), array_values($person_kv), $mail_subject);
+    $mail_message = str_replace(array_keys($person_kv), array_values($person_kv), $mail_message);
 
-        $mail_headers = "";
-        $mail_headers .= "From: admin@rescueteam.be\r\n";
-        $mail_headers .= "Reply-To: admin@rescueteam.be\r\n";
-        $mail_headers .= "Content-Type: text/html; charset=\"UTF-8\"\r\n";
-        $mail_headers .= "X-Mailer: PHP/" . phpversion() . "\r\n";
+    $mail_headers = "";
+    $mail_headers .= "From: no-reply@rescueteam.be\r\n";
+    $mail_headers .= "Reply-To: no-reply@rescueteam.be\r\n";
+    $mail_headers .= "X-Mailer: PHP/" . phpversion() . "\r\n";
+    $mail_headers .= "MIME-Version: 1.0\r\n";
+    $mail_headers .= "Content-Type: text/html; charset=\"UTF-8\"\r\n";
 
-        // DEBUG START
-        $mail_address = "debug@rescueteam.be";
+    $mail_success = mail($to, wordwrap($mail_subject, 70), $mail_message, $mail_headers);
 
-        $mail_headers = "";
-        $mail_headers .= "From: debug@rescueteam.be\r\n";
-        $mail_headers .= "Reply-To: admin@rescueteam.be\r\n";
-        $mail_headers .= "X-Mailer: PHP/" . phpversion() . "\r\n";
-        $mail_headers .= "MIME-Version: 1.0\r\n";
-        $mail_headers .= "Content-Type: text/html; charset=\"UTF-8\"\r\n";
-        // DEBUG END
+    return $mail_success;
+}
 
-        $valid = mail($mail_address, wordwrap($mail_subject, 70), $mail_message, $mail_headers);
-        if (!$valid) {
-            $msg = "Intern probleem. Probeer later opnieuw. Contacteer ons moest dit probleem aanhouden.";
-        }
+function send_emails() {
 
-        echo("mail_address: \r\n$mail_address\r\n");
-        echo("mail_subject: \r\n$mail_subject\r\n");
-        echo("mail_headers: \r\n$mail_headers\r\n");
-        echo("mail_message: \r\n$mail_message\r\n");
-        echo("Result of mail was $valid \r\n");
+    $enroll = new Enroll($_POST);
+    if (!$enroll->valid()) {
+        return false;
     }
 
-    $qs = [
-        "valid" => $valid,
-        "msg" => $msg,
+    $receivers = [
+        "leden@rescueteam.be",
+        //$enroll->email(), // receiver must be an existing address on one.com domain
     ];
-    $target_url = $forward_url . "?" . http_build_query($qs);
-    echo("forward to $target_url\r\n");
-    echo("header(Location: $target_url)\r\n");
-} else {
-    if ($request_method != 'GET') {
-        // Assume GET :)
+
+    foreach($receivers as $receiver) {
+        $mail_success = send_mail($receiver, $enroll);
+        if (!$mail_success) {
+            return false;
+        }
     }
-    require __DIR__ . "/../include/form.html";
+    return true;
+}
+
+function handle_POST() {
+    $success = send_emails();
+
+    if ($success) {
+        http_response_code(200);
+        $message = "ok";
+    } else {
+        http_response_code(400);
+        $message = error_get_last()["message"];
+    }
+
+    $data = [
+        "ok" => $success,
+        "msg" => $message,
+    ];
+
+    header('Content-type:application/json;charset=utf-8');
+    echo json_encode($data);
+}
+
+if ($request_method == 'POST') {
+    handle_POST();
 }
 ?>
