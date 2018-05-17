@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 {% from "macros/location.html" import render_location_name, render_location_address %}
-{% from "macros/person.html" import render_person_iterable, render_person_title %}
+{% from "macros/person.html" import render_person_iterable, render_person_name, render_person_title %}
 {% from "macros/time.html" import date_long_tostr, time_tostr %}
 {% from "macros/util.html" import join_iterable %}
 {% set year = this.datetime_start.year %}
@@ -14,9 +14,11 @@
 <u>Prijs:</u> &euro;{{ this.price }},-<br />
 <u>Contact:</u> {{ bag('person.education.email') | urlize }}<br />
 <u>Docenten:</u> {{ render_person_iterable(this.teachers, separator=', ') }}<br />
-Plaatsen beperkt tot {{ this.capacity }} deelnemers.{%
-if not this.registration_open %}
-    Deze opleiding is volzet.{%
+Plaatsen beperkt tot {{ this.capacity }} deelnemers.<br /><br />{%
+if this.registration_open %}
+<a href="{{ '/inschrijven' | url}}" class="btn btn-primary" tabindex="-1" role="button">Inschrijven</a>{%
+else %}
+    Deze bijscholing is volzet.{%
 endif %}
 </p>
 {% endblock %}

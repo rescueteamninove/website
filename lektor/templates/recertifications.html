@@ -8,8 +8,8 @@
 {{ this.body }}
 <p>
     <ol start="{{ render_pagination_index_start(this.pagination) }}">
-{% for cert in this.pagination.items %}
-    <li>{{ render_recertification_title(cert, link=True) }}</li>
+{% for recert in this.pagination.items %}
+    <li>{{ render_recertification_title(recert, link=True) }}</li>
 {% endfor %}
     </ol>
 </p>

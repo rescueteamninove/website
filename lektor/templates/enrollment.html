@@ -4,4 +4,5 @@
 {% set mail_subject_enc = this.mail_subject | urlencode %}
 {% set mail_body_enc = '\n'.join(this.mail_body) | urlencode %}
 {{ this.body.__html__() | replace('MAIL_SUBJECT', mail_subject_enc) | replace('MAIL_BODY', mail_body_enc) }}
+<a href="{{ '/inschrijven' | url}}" class="btn btn-primary" tabindex="-1" role="button">Inschrijven</a>
 {% endblock %}

@@ -5,13 +5,13 @@ _discoverable: no
 _hidden: yes
 ---
 from:
-admin_site
+noreply_site
 ---
 reply_to:
-admin_site
+noreply_site
 ---
-cc:
-admin_site
+to:
+enrollment
 ---
 title:
 Nieuwe registratie voor {activity} - {firstname} {surname}
@@ -19,11 +19,11 @@ Nieuwe registratie voor {activity} - {firstname} {surname}
 body:
 Hallo,
 
-Zopas werd een registratie ontvangen voor:
+Zopas werd een registratie ontvangen voor
 
-{activity} twv &euro;{price}
+{activity} twv €{price},-
 
-Door:
+door
 
 - Voornaam: {firstname}
 - Familienaam: {surname}

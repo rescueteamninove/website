@@ -76,31 +76,32 @@ class Jinja2ExtensionExpressionStatementPlugin(Plugin):
 
         context['get_parents'] = get_parents
 
-    def get_club_activities(self, this=None) -> typing.Dict[str, Activity]:
+    def get_club_activities(self) -> typing.Dict[str, Activity]:
         ctx = lektor.context.get_ctx()
-        if this is None:
-            this = ctx.pad.get('/lidmaatschap/include/form/')
 
         activities = dict()
 
+        label_member = ctx.pad.get('/lidmaatschap')['label_enlist']
         activities['lid'] = (Activity(
-            description=this['label_enlist'],
+            description=label_member,
             price=ctx.pad.databags.lookup('club.rescueteam_ninove.subscription_fee'))
         )
 
+        label_education = ctx.pad.get('/opleiding/cursus')['label_enlist']
         for r_i, child in enumerate(ctx.pad.get('/opleiding/cursus').children.filter(F.registration_open)):
             year = child['date_start'].year
             price = child['price']
             activities['ro{}'.format(r_i)] = Activity(
-                description='{} {}'.format(this['label_education'], year),
+                description='{} {}'.format(label_education, year),
                 price=price
             )
 
+        label_reeducation = ctx.pad.get('/opleiding/bijscholing')['label_enlist']
         for r_i, child in enumerate(ctx.pad.get('/opleiding/bijscholing').children.filter(F.registration_open)):
             date = DateTimeTool.date_DDMMYYYY_tostr(child['datetime_start'])
             price = child['price']
             activities['bs{}'.format(r_i)] = Activity(
-                description='{} {}'.format(this['label_reeducation'], date),
+                description='{} {}'.format(label_reeducation, date),
                 price=price,
             )
 

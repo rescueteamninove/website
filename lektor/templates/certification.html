@@ -32,7 +32,12 @@ Dit bedrag omvat:
     <li>{{ benefit }}{% if not loop.last %},{% else %}.{% endif %}</li>
 {% endfor %}
 </ul>
-</p>
+</p>{%
+if this.registration_open %}
+    <a href="{{ '/Inschrijven' | url}}" class="btn btn-primary" tabindex="-1" role="button">Inschrijven</a>{%
+else %}
+    Deze opleiding is volzet.{%
+endif %}<br /><br />
 <h2>Algemene informatie</h2>
 {{ this.information_common }}
 {% endblock %}

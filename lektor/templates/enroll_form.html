@@ -1,14 +1,25 @@
-{% set activities = get_club_activities() %}
 {% extends "page.html" %}
+{% set activities = get_club_activities() %}
 {% block body %}
 <h1>{{ this.title }}</h1>
 {{ this.body }}
-<form id="enlist_form" action="{{ site.get('/lidmaatschap/inschrijven2/') | url }}" method="post" novalidate>
+<div class="row">
+  <div class="alert alert-warning d-none alertForm alertIncomplete" role="alert">
+  {{ this.msg_bad_data}}
+  </div>
+  <div class="alert alert-success d-none alertForm alertSuccess" role="alert">
+  {{ this.msg_success }}
+  </div>
+  <div class="alert alert-danger d-none alertForm alertServer" role="alert">
+  {{ this.msg_mail_problem }}
+  </div>
+</div>
+<form id="enlistForm" novalidate>
   <div class="form-row">
     <div class="form-group col-12">
       <label for="inputState">Activiteit</label>
       <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-        <div class="input-group-addon">
+        <div class="input-group-text">
           <i class="fa fa-fw fa-crosshairs"></i>
         </div>
         <select id="inputState" name="activity" class="form-control" required>
@@ -24,7 +35,7 @@
     <div class="form-group col-md-6">
       <label for="inputFirstname">Voornaam</label>
       <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-        <div class="input-group-addon">
+        <div class="input-group-text">
           <i class="fa fa-fw fa-address-book-o"></i>
         </div>
         <input type="text" name="firstname" id="inputFirstname" placeholder="Voornaam" class="form-control" required>
@@ -33,7 +44,7 @@
     <div class="form-group col-md-6">
       <label for="inputSurname">Familienaam</label>
       <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-        <div class="input-group-addon">
+        <div class="input-group-text">
           <i class="fa fa-fw fa-address-book-o"></i>
         </div>
         <input type="text" name="surname" id="inputSurname" placeholder="Familienaam" class="form-control" required>
@@ -44,7 +55,7 @@
     <div class="form-group col-12">
       <label for="inputStreet">Straat + straatnummer</label>
       <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-        <div class="input-group-addon">
+        <div class="input-group-text">
           <i class="fa fa-fw fa-map-marker"></i>
         </div>
         <input type="text" name="street" id="inputStreet" placeholder="Straat + straatnummer" class="form-control" required>
@@ -55,7 +66,7 @@
     <div class="form-group col-sm-3">
       <label for="inputPostalcode">Postcode</label>
       <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-        <div class="input-group-addon">
+        <div class="input-group-text">
           <i class="fa-fw">#</i>
         </div>
       <input type="number" name="postalcode" id="inputPostalcode" placeholder="Postcode" class="form-control" required>
@@ -64,7 +75,7 @@
     <div class="form-group col-sm-9">
       <label for="inputCity">Stad</label>
       <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-        <div class="input-group-addon">
+        <div class="input-group-text">
           <i class="fa fa-fw fa-map-signs"></i>
         </div>
       <input type="text" name="city" id="inputCity" placeholder="Stad" class="form-control" required>
@@ -75,7 +86,7 @@
     <div class="form-group col-12">
       <label for="inputEmail">E-mailadres</label>
       <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-        <div class="input-group-addon">
+        <div class="input-group-text">
           <i class="fa fa-fw fa-envelope-o"></i>
         </div>
         <input type="email" name="email" id="inputEmail" placeholder="E-mailadres" class="form-control" required>
@@ -86,7 +97,7 @@
     <div class="form-group col-12">
       <label for="inputPhone">Telefoonnummer</label>
       <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-        <div class="input-group-addon">
+        <div class="input-group-text">
           <i class="fa fa-fw fa-phone"></i>
         </div>
         <input type="tel" name="phone" id="inputPhone" placeholder="Telefoonnummer" class="form-control">
@@ -97,7 +108,7 @@
     <div class="form-group col-12">
       <label for="inputMobile">GSM nummer</label>
       <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-        <div class="input-group-addon">
+        <div class="input-group-text">
           <i class="fa fa-fw fa-mobile-phone"></i>
         </div>
         <input type="tel" name="mobile" id="inputMobile" placeholder="GSM nummer" class="form-control">
@@ -108,23 +119,39 @@
     <div class="form-group col-12">
       <label for="inputBirthdate">Geboortedatum</label>
       <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-        <div class="input-group-addon">
+        <div class="input-group-text">
           <i class="fa fa-fw fa-calendar"></i>
         </div>
       <input type="date" name="birthdate" id="inputBirthdate" placeholder="Geboortedatum" class="form-control" required>
       </div>
     </div>
   </div>
-  <button type="submit" class="btn btn-primary">Versturen</button>
+  <button type="submit" id="formSubmitButton" class="btn btn-primary">Versturen</button>
 </form>
+<div class="row">
+  <div class="alert alert-warning d-none alertForm alertIncomplete" role="alert">
+  {{ this.msg_bad_data}}
+  </div>
+  <div class="alert alert-success d-none alertForm alertSuccess" role="alert">
+  {{ this.msg_success }}
+  </div>
+  <div class="alert alert-danger d-none alertForm alertServer" role="alert">
+  {{ this.msg_mail_problem }}
+  </div>
+</div>
 {% raw %}
 <script>
 (function() {
   'use strict';
 
   window.addEventListener('load', function() {
-    let form = document.getElementById('enlist_form');
-    form.addEventListener('submit', function(event) {
+    let enlistForm = document.getElementById('enlistForm');
+    enlistForm.addEventListener('submit', function(event) {
+      event.stopPropagation();
+      event.preventDefault();
+
+      $('div.alertForm').addClass('d-none');
+
       let contactEntries = [
         document.getElementById("inputMobile"),
         document.getElementById("inputPhone"),
@@ -139,13 +166,30 @@
         entry.required = contactsValid ? undefined : true;
       }
 
-      let formValid = form.checkValidity();
+      let formValid = enlistForm.checkValidity();
 
       if (!formValid) {
-        event.preventDefault();
-        event.stopPropagation();
+        $('div.alertIncomplete').removeClass('d-none');
+      } else {
+        let request = $.ajax({
+          method: 'POST',
+          url: 'submit.php',
+          data: new FormData(enlistForm),
+          contentType: false,
+          processData: false,
+          dataType: 'json',
+        });
+
+        request.done(function(msg) {
+          $('div.alertSuccess').removeClass('d-none');
+          $('formSubmitButton').disabled = true;
+        });
+
+        request.fail(function(jqXHR, textStatus) {
+          $('div.alertServer').removeClass('d-none');
+        });
       }
-      form.classList.add('was-validated');
+      enlistForm.classList.add('was-validated');
     }, false);
   }, false);
 })();
