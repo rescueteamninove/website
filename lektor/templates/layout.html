@@ -11,7 +11,6 @@
     <meta name="generator" content="{{ generator_name_version }}" />
     <title>{% block title %}Welcome{% endblock %} &mdash; {{ bag('site.title_short') }}</title>
     <link rel="stylesheet" href="{{ '/static/gen/styles.css' | asseturl }}" />
-    <link rel="stylesheet" href="{{ '/static/css/rescueteam.css' | asseturl }}" />
   </head>
 <body>
   <header>
@@ -64,7 +63,7 @@
         ('mailto:{}'.format(bag('person.admin_site.email')), 'fa-envelope-o', False),
         (bag('site.facebook'), 'fa-facebook', True),
         ) %}
-          <ul class="list-inline contact-options ">
+          <ul class="list-inline contact-options mt-2">
     {% for href, fa, newWindow in contact_options %}
             <li class="list-inline-item">
               <a class="btn btn-outline-dark btn-contact text-center rounded-circle" href="{{ href }}"{%
