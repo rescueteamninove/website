@@ -119,7 +119,7 @@ function send_mail($to, $enroll) {
 
     $mail_subject = "Nieuwe registratie voor {activity} - {firstname} {surname}";
     $mail_message = <<<EOM
-<p>Hallo clubmedewerker,</p>
+<p>Beste clubmedewerker,</p>
 <p>Zopas werd op de website een registratie ontvangen voor</p>
 <p>{activity} twv €{price},-</p>
 <p>door</p>
@@ -160,7 +160,11 @@ function send_emails() {
     }
 
     $receivers = [
+    
         "opleidingen@rescueteam.be",
+    
+        "debug@rescueteam.be",
+    
         //$enroll->email(), // receiver must be an existing address on one.com domain
     ];
 
