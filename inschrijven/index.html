@@ -216,7 +216,7 @@
 
         request.done(function(msg) {
           $('div.alertSuccess').removeClass('d-none');
-          $('formSubmitButton').disabled = true;
+          $('#formSubmitButton').disabled = true;
         });
 
         request.fail(function(jqXHR, textStatus) {

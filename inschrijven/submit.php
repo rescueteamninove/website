@@ -70,14 +70,15 @@ class Enroll {
 
         foreach([$data, $this->phones] as $arr) {
             foreach($arr as $key => $value) {
-                $kv[ "{" . $key . "}" ] = $value;
+                $kv[ "{" . $key . "}" ] = htmlspecialchars($value);
             }
         }
 
         $activity_id = $this->data["activity"];
         $activity = $id_to_activity[$activity_id];
-        $kv["{activity}"] = $activity["description"];
-        $kv["{price}"] = $activity["price"];
+
+        $kv["{activity}"] = htmlspecialchars($activity["description"]);
+        $kv["{price}"] = htmlspecialchars($activity["price"]);
 
         return $kv;
     }
@@ -118,8 +119,8 @@ function send_mail($to, $enroll) {
 
     $mail_subject = "Nieuwe registratie voor {activity} - {firstname} {surname}";
     $mail_message = <<<EOM
-<p>Hallo,</p>
-<p>Zopas werd een registratie ontvangen voor</p>
+<p>Hallo clubmedewerker,</p>
+<p>Zopas werd op de website een registratie ontvangen voor</p>
 <p>{activity} twv €{price},-</p>
 <p>door</p>
 <ul>
@@ -133,10 +134,8 @@ function send_mail($to, $enroll) {
 <li>GSM: {mobile}</li>
 <li>Geboortedatum: {birthdate}</li>
 </ul>
-<p>Dit is g&eacute;&eacute;n bevestiging van inschrijving!</p>
-<p>Wij nemen zo spoedig mogelijk contact met u op.</p>
-<p>Bedankt voor het vertrouwen!</p>
-<p>Rescue Team Ninove</p>
+<p>Gelieve zo spoedig bovenstaande persoon te contacteren voor bevestiging!</p>
+<p>Rescue Web Developer Team Ninove</p>
 EOM;
     $mail_subject = str_replace(array_keys($person_kv), array_values($person_kv), $mail_subject);
     $mail_message = str_replace(array_keys($person_kv), array_values($person_kv), $mail_message);
@@ -161,7 +160,7 @@ function send_emails() {
     }
 
     $receivers = [
-        "leden@rescueteam.be",
+        "opleidingen@rescueteam.be",
         //$enroll->email(), // receiver must be an existing address on one.com domain
     ];
 
