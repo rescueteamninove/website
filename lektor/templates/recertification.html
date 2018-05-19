@@ -7,6 +7,7 @@
 {% set title = 'Bijscholing {}'.format(date_long_tostr(this.datetime_start)) %}
 {% block title %}{{ title }}{% endblock %}
 {% block body %}
+<h1>Bijscholing HR - {{ date_long_tostr(this.datetime_start) }}</h1>
 <p>
 <u>Datum:</u> {{ date_long_tostr(this.datetime_start) }}<br />
 <u>Tijd:</u> {{ time_tostr(this.datetime_start) }} - {{ time_tostr(this.datetime_stop) }}<br />

@@ -11,15 +11,15 @@ reply_to:
 noreply_site
 ---
 to:
-enrollment
+education
 ---
 title:
 Nieuwe registratie voor {activity} - {firstname} {surname}
 ---
 body:
-Hallo,
+Hallo clubmedewerker,
 
-Zopas werd een registratie ontvangen voor
+Zopas werd op de website een registratie ontvangen voor
 
 {activity} twv €{price},-
 
@@ -35,10 +35,6 @@ door
 - GSM: {mobile}
 - Geboortedatum: {birthdate}
 
-Dit is g&eacute;&eacute;n bevestiging van inschrijving!
+Gelieve zo spoedig bovenstaande persoon te contacteren voor bevestiging!
 
-Wij nemen zo spoedig mogelijk contact met u op.
-
-Bedankt voor het vertrouwen!
-
-Rescue Team Ninove
+Rescue Web Developer Team Ninove

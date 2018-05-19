@@ -4,6 +4,7 @@
 {% from "macros/person.html" import render_person_iterable, render_person_name, render_person_title %}
 {% from "macros/time.html" import date_long_tostr %}
 {% set year = this.date_start.year %}
+{% set title = 'Redderscursus {}'.format(this.date_start.year) %}
 {% block title %}{{ title }}{% endblock %}
 {% block body %}
 <h1>Cursus HR - {{ render_certification_title(this) | title }}</h1>
