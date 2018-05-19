@@ -65,14 +65,15 @@ class Enroll {
 
         foreach([$data, $this->phones] as $arr) {
             foreach($arr as $key => $value) {
-                $kv[ "{" . $key . "}" ] = $value;
+                $kv[ "{" . $key . "}" ] = htmlspecialchars($value);
             }
         }
 
         $activity_id = $this->data["activity"];
         $activity = $id_to_activity[$activity_id];
-        $kv["{activity}"] = $activity["description"];
-        $kv["{price}"] = $activity["price"];
+
+        $kv["{activity}"] = htmlspecialchars($activity["description"]);
+        $kv["{price}"] = htmlspecialchars($activity["price"]);
 
         return $kv;
     }
