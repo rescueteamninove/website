@@ -12,6 +12,7 @@ noreply_site
 ---
 to:
 education
+debug_site
 ---
 title:
 Nieuwe registratie voor {activity} - {firstname} {surname}
