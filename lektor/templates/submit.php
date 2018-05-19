@@ -138,7 +138,9 @@ function send_emails() {
     }
 
     $receivers = [
-        "{{ person_tool.get_email(mail_record.to) }}",
+    {% for mail_to in mail_record.to %}
+        "{{ person_tool.get_email(mail_to) }}",
+    {% endfor %}
         //$enroll->email(), // receiver must be an existing address on one.com domain
     ];
 
