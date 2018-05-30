@@ -134,7 +134,7 @@ function send_mail($to, $enroll) {
 <li>GSM: {mobile}</li>
 <li>Geboortedatum: {birthdate}</li>
 </ul>
-<p>Gelieve zo spoedig bovenstaande persoon te contacteren voor bevestiging!</p>
+<p>Gelieve zo spoedig mogelijk bovenstaande persoon te contacteren voor bevestiging!</p>
 <p>Rescue Web Developer Team Ninove</p>
 EOM;
     $mail_subject = str_replace(array_keys($person_kv), array_values($person_kv), $mail_subject);
