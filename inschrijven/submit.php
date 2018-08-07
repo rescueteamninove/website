@@ -12,7 +12,7 @@ $id_to_activity = array(
         ),
 
     "bs0" => array(
-        "description" => "Bijscholing Hoger Redder 30/6/2018",
+        "description" => "Bijscholing Hoger Redder 22/12/2018",
         "price" => 50,
         ),
 
