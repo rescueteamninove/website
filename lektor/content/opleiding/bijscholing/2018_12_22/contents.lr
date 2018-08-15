@@ -1,6 +1,6 @@
 published: yes
 ---
-registration_open: no
+registration_open: yes
 ---
 meta_description: Op zaterdag 22 december 2018 gaat er in het Provinciaal Gaversbad te Geraardsbergen een bijscholing Hoger Redder door, georganiseerd door RTN.
 ---
@@ -15,7 +15,6 @@ capacity: 40
 price: 50
 ---
 teachers:
-docent_ivo_roelandt
 docent_jonatan_helpers
 ---
 contact: education
