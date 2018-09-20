@@ -11,6 +11,11 @@ $id_to_activity = array(
         "price" => 90,
         ),
 
+    "ro0" => array(
+        "description" => "Opleiding Hoger Redder 2019",
+        "price" => 300,
+        ),
+
     "bs0" => array(
         "description" => "Bijscholing Hoger Redder 22/12/2018",
         "price" => 50,
