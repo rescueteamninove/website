@@ -1,9 +1,9 @@
-published: no
+published: yes
 ---
 meta_description:
 RTN organiseert in voorjaar 2019 een opleiding Hoger Redder.
 ---
-registration_open: no
+registration_open: yes
 ---
 location: gaversbad
 ---
@@ -25,8 +25,8 @@ date_exam_theory: 2019-04-13
 date_exam_practice: 2019-04-20
 ---
 teachers:
-docent_ivo_roelandt
 docent_jonatan_helpers
+docent_ivo_roelandt
 ---
 person_contact:
 education
