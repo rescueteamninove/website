@@ -34,6 +34,7 @@ class Enroll {
             "city",
             "email",
             "birthdate",
+            "comments",
         );
         $keys_phone = array(
             "phone",
@@ -138,6 +139,7 @@ function send_mail($to, $enroll) {
 <li>Telefoon: {phone}</li>
 <li>GSM: {mobile}</li>
 <li>Geboortedatum: {birthdate}</li>
+<li>Opmerkingen: {comments}</li>
 </ul>
 <p>Gelieve zo spoedig mogelijk bovenstaande persoon te contacteren voor bevestiging!</p>
 <p>Rescue Web Developer Team Ninove</p>
