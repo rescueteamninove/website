@@ -121,7 +121,6 @@ function send_mail($to, $enroll) {
 
     $mail_headers = "";
     $mail_headers .= "From: {{ person_tool.get_email(mail_record.from) }}\r\n";
-    $mail_headers .= "Reply-To: {{ person_tool.get_email(mail_record.reply_to) }}\r\n";
     $mail_headers .= "X-Mailer: PHP/" . phpversion() . "\r\n";
     $mail_headers .= "MIME-Version: 1.0\r\n";
     $mail_headers .= "Content-Type: text/html; charset=\"UTF-8\"\r\n";

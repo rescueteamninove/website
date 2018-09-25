@@ -7,9 +7,6 @@ _hidden: yes
 from:
 noreply_site
 ---
-reply_to:
-noreply_site
----
 to:
 education
 debug_site
