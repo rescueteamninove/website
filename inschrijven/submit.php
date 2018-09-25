@@ -149,7 +149,6 @@ EOM;
 
     $mail_headers = "";
     $mail_headers .= "From: no-reply@rescueteam.be\r\n";
-    $mail_headers .= "Reply-To: no-reply@rescueteam.be\r\n";
     $mail_headers .= "X-Mailer: PHP/" . phpversion() . "\r\n";
     $mail_headers .= "MIME-Version: 1.0\r\n";
     $mail_headers .= "Content-Type: text/html; charset=\"UTF-8\"\r\n";
