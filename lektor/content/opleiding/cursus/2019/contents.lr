@@ -11,18 +11,19 @@ date_start: 2019-01-05
 ---
 title_prefix: voorjaar
 ---
-time_lesson_start: 15u30
+time_lesson_start: 1970-01-01 15:30:00
 ---
-time_lesson_stop: 20u30
+time_lesson_stop:  1970-01-01 20:45:00
 ---
 dates_lesson:
 5, 12, 19 en 26 januari
 2, 9, 16 en 23 februari
 2, 9, 16, 23 en 30 maart
+6 april
 ---
-date_exam_theory: 2019-04-13
+date_exam_theory: 2019-04-20
 ---
-date_exam_practice: 2019-04-20
+date_exam_practice: 2019-04-27
 ---
 teachers:
 docent_jonatan_helpers

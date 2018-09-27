@@ -2,7 +2,7 @@
 {% from "macros/certification.html" import render_certification_title %}
 {% from "macros/location.html" import render_location_name, render_location_address %}
 {% from "macros/person.html" import render_person_iterable, render_person_name, render_person_title %}
-{% from "macros/time.html" import date_long_tostr %}
+{% from "macros/time.html" import date_long_tostr, time_tostr %}
 {% set year = this.date_start.year %}
 {% set title = 'Redderscursus {}'.format(this.date_start.year) %}
 {% block title %}{{ title }}{% endblock %}
@@ -19,7 +19,8 @@
 {% for date_lesson in this.dates_lesson %}
     <li>{{ date_lesson }};</li>
 {% endfor %}
-</ul></p>
+</ul>
+Lessen starten om {{ time_tostr(this.time_lesson_start) }} en eindigen om {{ time_tostr(this.time_lesson_stop) }}.</p>
 <p><u>Theorie-examen:</u> {{ date_long_tostr(this.date_exam_theory) }}</p>
 <p><u>Praktijk-examen:</u> {{ date_long_tostr(this.date_exam_practice) }}</p>
 <strong>Alle data onder voorbehoud.</strong>
