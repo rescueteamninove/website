@@ -50,6 +50,7 @@ class DateTimeTool(object):
     def time_HuMM_tostr(cls, dt: datetime.datetime) -> str:
         return '{}u{:02}'.format(dt.hour, dt.minute)
 
+
 class Jinja2ExtensionExpressionStatementPlugin(Plugin):
     name = 'lektor-jinja2-extension-expression-statement'
     description = 'Add the "do" expression-statement. ' \
@@ -115,6 +116,7 @@ class Jinja2ExtensionExpressionStatementPlugin(Plugin):
     def on_setup_env(self, **extra):
         self.env.jinja_env.add_extension(jinja2.ext.do)
         self.env.jinja_env.globals.update(
+            enumerate=enumerate,
             zip=zip,
             get_club_activities=self.get_club_activities,
             date_tool=DateTimeTool,

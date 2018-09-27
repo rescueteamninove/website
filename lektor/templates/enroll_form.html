@@ -17,12 +17,12 @@
 <form id="enlistForm" novalidate>
   <div class="form-row">
     <div class="form-group col-12">
-      <label for="inputState">Activiteit</label>
+      <label for="inputActivity">Activiteit</label>
       <div class="input-group mb-2 mr-sm-2 mb-sm-0">
         <div class="input-group-text">
           <i class="fa fa-fw fa-crosshairs"></i>
         </div>
-        <select id="inputState" name="activity" class="form-control" required>
+        <select id="inputActivity" name="activity" class="form-control" required>
           <option disabled="disabled" value="" selected>Kies activiteit</option>{%
             for id, activity in activities.items() %}
           <option value="{{ id }}">{{ activity.description }} (&euro; {{ activity.price }})</option>{%
@@ -123,6 +123,22 @@
           <i class="fa fa-fw fa-calendar"></i>
         </div>
       <input type="date" name="birthdate" id="inputBirthdate" placeholder="Geboortedatum" class="form-control" required />
+      </div>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-12">
+      <label for="inputHowDoYouKnowOfUs">Hoe heb je over ons gehoord?</label>
+      <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+        <div class="input-group-text">
+          <i class="fa fa-fw fa-question"></i>
+        </div>
+        <select id="inputHowDoYouKnowOfUs" name="howdoyouknowofus" class="form-control" required>
+          <option disabled="disabled" value="(niets geselecteerd)" selected>Hoe heb je over ons gehoord?</option>{%
+            for question in this.question_howdoyouknowofus %}
+          <option value="{{ question }}">{{ question }}</option>{%
+            endfor%}
+        </select>
       </div>
     </div>
   </div>

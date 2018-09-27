@@ -33,7 +33,7 @@ class Builder(object):
     def _buildflags(self) -> object:
         return self._build_flags
 
-    def build(self):
+    def build(self, tiny=False):
         from lektor.builder import Builder
         from lektor.reporter import CliReporter
 
@@ -44,7 +44,7 @@ class Builder(object):
         def _build():
             builder = Builder(env.new_pad(), str(self._dst),
                               buildstate_path=self._buildstate,
-                              extra_flags=self._buildflags)
+                              extra_flags=self._buildflags if not tiny else [])
             failures = builder.build_all()
             builder.prune()
             return failures == 0
@@ -76,7 +76,7 @@ def main():
     parser.add_argument('-o', type=Path, dest='dst', metavar='PATH', help='Output, path of website')
     parser.add_argument('-f', type=str, dest='build_flags', nargs=argparse.ZERO_OR_MORE, default=None, metavar='VAR', help='Build flag(s)')
     parser.add_argument('-r', type=str, dest='repo', default=DEFAULT_GIT_REPO, metavar='REPO', help='Remote git repository (default:{})'.format(DEFAULT_GIT_REPO))
-    parser.add_argument('action', choices=('build-init', 'rebuild', 'build-commit', 'build-push', ), help='Action to perform')
+    parser.add_argument('action', choices=('build-init', 'build', 'rebuild', 'build-commit', 'build-push', ), help='Action to perform')
     ns = parser.parse_args()
     if ns.src is None:
         ns.src = Path(__file__).absolute().parent / 'lektor'
@@ -100,6 +100,11 @@ def main():
         gh_pages.set_tracking_branch(github.refs['gh-pages'])
         gh_pages.checkout()
         success = True
+    elif ns.action == 'build':
+        r = git.Repo(str(ns.dst))
+        gh_pages = r.branches['gh-pages']
+        gh_pages.checkout()
+        success = b.build(tiny=True)
     elif ns.action == 'rebuild':
         r = git.Repo(str(ns.dst))
         gh_pages = r.branches['gh-pages']

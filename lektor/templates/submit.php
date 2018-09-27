@@ -24,6 +24,7 @@ class Enroll {
             "city",
             "email",
             "birthdate",
+            "howdoyouknowofus",
             "comments",
         );
         $keys_phone = array(
