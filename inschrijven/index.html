@@ -52,12 +52,12 @@
 <form id="enlistForm" novalidate>
   <div class="form-row">
     <div class="form-group col-12">
-      <label for="inputState">Activiteit</label>
+      <label for="inputActivity">Activiteit</label>
       <div class="input-group mb-2 mr-sm-2 mb-sm-0">
         <div class="input-group-text">
           <i class="fa fa-fw fa-crosshairs"></i>
         </div>
-        <select id="inputState" name="activity" class="form-control" required>
+        <select id="inputActivity" name="activity" class="form-control" required>
           <option disabled="disabled" value="" selected>Kies activiteit</option>
           <option value="lid">Lidmaatschap RTN (&euro; 90)</option>
           <option value="ro0">Opleiding Hoger Redder 2019 (&euro; 300)</option>
@@ -158,6 +158,25 @@
           <i class="fa fa-fw fa-calendar"></i>
         </div>
       <input type="date" name="birthdate" id="inputBirthdate" placeholder="Geboortedatum" class="form-control" required />
+      </div>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-12">
+      <label for="inputHowDoYouKnowOfUs">Hoe heb je over ons gehoord?</label>
+      <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+        <div class="input-group-text">
+          <i class="fa fa-fw fa-question"></i>
+        </div>
+        <select id="inputHowDoYouKnowOfUs" name="howdoyouknowofus" class="form-control" required>
+          <option disabled="disabled" value="(niets geselecteerd)" selected>Hoe heb je over ons gehoord?</option>
+          <option value="RTN of NGB">RTN of NGB</option>
+          <option value="Poster">Poster</option>
+          <option value="RedFed">RedFed</option>
+          <option value="Sporta">Sporta</option>
+          <option value="Facebook">Facebook</option>
+          <option value="Andere (specifieer aub bij opmerkingen)">Andere (specifieer aub bij opmerkingen)</option>
+        </select>
       </div>
     </div>
   </div>
