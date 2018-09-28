@@ -1,6 +1,6 @@
 _model: newsitems
 ---
-_discoverable: no
+_discoverable: yes
 ---
 title: Nieuws
 ---

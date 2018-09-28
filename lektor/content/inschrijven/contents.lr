@@ -1,6 +1,6 @@
 _model: enroll_form
 ---
-_discoverable: no
+_discoverable: yes
 ---
 title: Inschrijven
 ---
