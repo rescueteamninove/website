@@ -128,7 +128,7 @@ function send_mail($to, $enroll) {
     $mail_message = <<<EOM
 <p>Beste clubmedewerker,</p>
 <p>Zopas werd op de website een registratie ontvangen voor</p>
-<p>{activity} twv €{price},-</p>
+<p>{activity} twv &euro;{price},-</p>
 <p>door</p>
 <ul>
 <li>Voornaam: {firstname}</li>
