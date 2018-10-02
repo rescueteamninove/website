@@ -4,6 +4,7 @@
 {% block title %}{{ this.title }}{% endblock %}
 {% block body %}
 <h1>{{ this.title }}</h1>
+<a href="{{ '/opleiding' | url}}">&lt; Terug naar opleidingen</a>
 {{ this.body }}
 <p>
     <ol start="{{ render_pagination_index_start(this.pagination) }}">

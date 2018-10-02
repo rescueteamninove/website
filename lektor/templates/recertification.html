@@ -8,6 +8,7 @@
 {% block title %}{{ title }}{% endblock %}
 {% block body %}
 <h1>Bijscholing HR - {{ date_long_tostr(this.datetime_start) }}</h1>
+<a href="{{ '/opleiding/bijscholing' | url}}">&lt; Terug naar overzicht bijscholingen</a>
 <p>
 <u>Datum:</u> {{ date_long_tostr(this.datetime_start) }}<br />
 <u>Tijd:</u> {{ time_tostr(this.datetime_start) }} - {{ time_tostr(this.datetime_stop) }}<br />

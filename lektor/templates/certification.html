@@ -8,6 +8,7 @@
 {% block title %}{{ title }}{% endblock %}
 {% block body %}
 <h1>Cursus HR - {{ render_certification_title(this) | title }}</h1>
+<a href="{{ '/opleiding/cursus' | url}}">&lt; Terug naar overzicht cursussen</a>
 <p>
     In {{ year }} gaat de redderscursus door te:<br />
     {{ render_location_name(this.location) }}<br />{{ render_location_address(this.location) }}
