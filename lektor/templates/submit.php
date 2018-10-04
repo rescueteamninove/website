@@ -14,27 +14,31 @@ $id_to_activity = array(
 );
 
 class Enroll {
-    function __construct($keymap) {
-        $keys_req = array(
-            "activity",
-            "firstname",
-            "surname",
-            "street",
-            "postalcode",
-            "city",
-            "email",
-            "birthdate",
-            "howdoyouknowofus",
-            "comments",
-        );
-        $keys_phone = array(
-            "phone",
-            "mobile",
-        );
+    static $keys_req = array(
+        "activity",
+        "firstname",
+        "surname",
+        "street",
+        "postalcode",
+        "city",
+        "email",
+        "birthdate",
+    );
 
+    static $keys_nonreq = array(
+        "howdoyouknowofus",
+        "comments",
+    );
+
+    static $keys_phone = array(
+        "phone",
+        "mobile",
+    );
+
+    function __construct($keymap) {
         $this->data = array();
 
-        foreach($keys_req as $key) {
+        foreach(array_merge(self::$keys_req, self::$keys_nonreq) as $key) {
             if (array_key_exists($key, $keymap)) {
                 $val = trim($keymap[$key]) ?? NULL;
             } else {
@@ -45,7 +49,7 @@ class Enroll {
 
         $this->phones = array();
 
-        foreach($keys_phone as $key) {
+        foreach(self::$keys_phone as $key) {
             if (array_key_exists($key, $keymap)) {
                 $val = trim($keymap[$key]) ?? NULL;
             } else {
@@ -83,7 +87,8 @@ class Enroll {
     function bad_keys() {
         $bad_keys = array();
 
-        foreach($this->data as $key => $val) {
+        foreach(self::$keys_req as $key_req) {
+            $val = $this->data[$key_req];
             if (empty($val)) {
                 $bad_keys[] = $key;
             }
@@ -103,7 +108,11 @@ class Enroll {
 
     function valid() {
         $bad_keys = $this->bad_keys();
-        return empty($bad_keys);
+        $valid = empty($bad_keys);
+        if (!$valid) {
+            trigger_error("Some bad keys: " . join(", ", $bad_keys));
+        }
+        return $valid;
     }
 }
 
@@ -132,7 +141,6 @@ function send_mail($to, $enroll) {
 }
 
 function send_emails() {
-
     $enroll = new Enroll($_POST);
     if (!$enroll->valid()) {
         return false;
