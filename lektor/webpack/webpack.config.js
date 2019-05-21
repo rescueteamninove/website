@@ -19,20 +19,24 @@ config = {
   },
   module: {
     rules: [
-      { test: /\.js$/, exclude: /node_modules/, use: 'babel-loader', },
-      { test: /\.scss$/, use: [MiniCssExtractPlugin.loader, 'css-loader', {
-            loader: 'postcss-loader',
-            options: { plugins: function () { return [ require('precss'), require('autoprefixer'), ];}, },
-          }, 'sass-loader', ], },
-      { test: /\.css$/, use: [MiniCssExtractPlugin.loader, 'css-loader', ], },
+      { test: /\.js$/,
+        exclude: /node_modules/,
+        use: 'babel-loader', },
+      { test: /\.(sa|sc|c)ss$/,
+        use: [
+            { loader: MiniCssExtractPlugin.loader, },
+            'css-loader',
+            'postcss-loader',
+            'sass-loader',
+        ],},
       { test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: "url-loader?limit=10000&mimetype=application/font-woff" },
       { test: /\.(ttf|eot|svg|png|jpe?g|gif)$/, use: 'file-loader' },
     ],
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: '[name].css',
-      chunkFilename: '[id].css',
+      filename: '[name].[hash].css',
+      chunkFilename: '[id].[hash].css',
     }),
     new webpack.ProvidePlugin({
       $: 'jquery',
