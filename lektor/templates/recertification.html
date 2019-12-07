@@ -19,8 +19,8 @@
 Plaatsen beperkt tot {{ this.capacity }} deelnemers.<br /><br />{%
 if this.registration_open %}
 <a href="{{ '/inschrijven' | url}}" class="btn btn-primary" tabindex="-1" role="button">Inschrijven</a>{%
-else %}
-Inschrijvingen zijn momenteel gesloten.{%
-endif %}
+else %}{% if this.registration_full %}
+De bijscholing is volzet. Inschrijvingen zijn gesloten.{% else %}
+Inschrijvingen zijn momenteel gesloten.{% endif %}{% endif %}
 </p>
 {% endblock %}

@@ -38,9 +38,10 @@ Dit bedrag omvat:
 </p>{%
 if this.registration_open %}
 <a href="{{ '/inschrijven' | url}}" class="btn btn-primary" tabindex="-1" role="button">Inschrijven</a>{%
-else %}
-Inschrijvingen zijn momenteel gesloten.{%
-endif %}<br /><br />
+else %}{% if this.registration_full %}
+De opleiding is volzet. Inschrijvingen zijn gesloten.{% else %}
+Inschrijvingen zijn momenteel gesloten.{% endif %}{% endif
+%}<br /><br />
 <h2>Algemene informatie</h2>
 {{ this.information_common }}
 {% endblock %}
