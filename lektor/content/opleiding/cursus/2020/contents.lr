@@ -3,7 +3,9 @@ published: yes
 meta_description:
 Rescue Team Ninove organiseert in voorjaar 2020 een opleiding Hoger Redder.
 ---
-registration_open: yes
+registration_open: no
+---
+registration_full: yes
 ---
 location: gaversbad
 ---
