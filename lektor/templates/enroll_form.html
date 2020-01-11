@@ -128,22 +128,6 @@
   </div>
   <div class="form-row">
     <div class="form-group col-12">
-      <label for="inputHowDoYouKnowOfUs">Hoe heb je over ons gehoord?</label>
-      <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-        <div class="input-group-text">
-          <i class="fa fa-fw fa-question"></i>
-        </div>
-        <select id="inputHowDoYouKnowOfUs" name="howdoyouknowofus" class="form-control" required>
-          <option disabled="disabled" value="(niets geselecteerd)" selected>Hoe heb je over ons gehoord?</option>{%
-            for question in this.question_howdoyouknowofus %}
-          <option value="{{ question }}">{{ question }}</option>{%
-            endfor%}
-        </select>
-      </div>
-    </div>
-  </div>
-  <div class="form-row">
-    <div class="form-group col-12">
       <label for="inputComments">Opmerkingen</label>
       <div class="input-group mb-2 mr-sm-2 mb-sm-0">
         <div class="input-group-text">

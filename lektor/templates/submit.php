@@ -26,7 +26,6 @@ class Enroll {
     );
 
     static $keys_nonreq = array(
-        "howdoyouknowofus",
         "comments",
     );
 
