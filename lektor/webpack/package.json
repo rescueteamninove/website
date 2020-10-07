@@ -19,26 +19,26 @@
   "devDependencies": {
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.5",
-    "bootstrap": "^4.5.1",
+    "bootstrap": "^4.5.2",
     "css-loader": "^2.1.1",
     "file-loader": "^1.1.11",
     "font-awesome": "^4.7.0",
     "jquery": "^3.5.1",
     "mini-css-extract-plugin": "^0.4.5",
     "node-sass": "^4.14.1",
-    "optimize-css-assets-webpack-plugin": "^5.0.3",
+    "optimize-css-assets-webpack-plugin": "^5.0.4",
     "popper.js": "^1.16.1",
     "postcss-loader": "^2.1.6",
     "precss": "^3.1.2",
     "sass-loader": "^7.3.1",
     "style-loader": "^0.21.0",
     "url-loader": "^1.1.2",
-    "webpack": "^4.44.1",
+    "webpack": "^4.44.2",
     "webpack-cli": "^3.3.12"
   },
   "dependencies": {
     "hoek": "^5.0.4",
-    "lodash": "^4.17.19",
+    "lodash": "^4.17.20",
     "lodash.template": "^4.5.0",
     "tar": "^4.4.13"
   }
