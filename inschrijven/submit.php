@@ -11,6 +11,11 @@ $id_to_activity = array(
         "price" => 90,
         ),
 
+    "ro0" => array(
+        "description" => "Opleiding Hoger Redder 2021",
+        "price" => 300,
+        ),
+
 );
 
 class Enroll {
