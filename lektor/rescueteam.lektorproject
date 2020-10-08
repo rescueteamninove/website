@@ -5,5 +5,5 @@ url_style = absolute
 url = https://www.rescueteam.be
 
 [packages]
-lektor-webpack-support = 0.3
+lektor-webpack-support = 0.4
 lektor-minify = 1.2
