@@ -3,10 +3,21 @@
 {% block title %}{{ this.title }}{% endblock %}
 {% block body %}
 <h1>{{ this.title }}</h1>
+<section>
 <ul class="fa-ul">
 {% for block in this.contactperson_flows.blocks %}{{
     render_person(block.person) }}{%
 endfor %}
 </ul>
+</section>
+<section>
+<h2>{{ bag('i18n', this.alt, 'club_address').capitalize() }}</h2>
+{% for line in bag('club', bag('site', 'club_id'), 'address').split(";") %}{{ line }}<br />
+{% endfor %}</section>
+<section>
+<h2>{{ bag('i18n', this.alt, 'vat_number').capitalize() }}</h2>
+{{ bag('club', bag('site', 'club_id'), 'vat_number') }}
+</section>
+<br />
 {{ this.body }}
 {% endblock %}
