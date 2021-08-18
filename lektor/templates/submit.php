@@ -23,6 +23,7 @@ class Enroll {
         "city",
         "email",
         "birthdate",
+        "birthplace",
     );
 
     static $keys_nonreq = array(
