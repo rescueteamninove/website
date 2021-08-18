@@ -23,6 +23,7 @@ class Enroll {
         "city",
         "email",
         "birthdate",
+        "birthplace",
     );
 
     static $keys_nonreq = array(
@@ -138,6 +139,7 @@ function send_mail($to, $enroll) {
 <li>Telefoon: {phone}</li>
 <li>GSM: {mobile}</li>
 <li>Geboortedatum: {birthdate}</li>
+<li>Geboorteplaats: {birthplace}</li>
 <li>Opmerkingen: {comments}</li>
 </ul>
 <p>Gelieve zo spoedig mogelijk bovenstaande persoon te contacteren voor bevestiging!</p>
