@@ -1,13 +1,13 @@
-published: yes
+published: no
 ---
 meta_description:
-Rescue Team Ninove organiseert in voorjaar 2022 een opleiding Hoger Redder.
+Rescue Team Ninove organiseert in voorjaar 2023 een opleiding Hoger Redder.
 ---
-registration_open: yes
+registration_open: no
 ---
 location: gaversbad
 ---
-date_start: 2022-01-08
+date_start: 2023-01-08
 ---
 title_prefix: voorjaar
 ---
@@ -16,18 +16,17 @@ time_lesson_start: 1970-01-01 15:30:00 +0100
 time_lesson_stop:  1970-01-01 20:45:00 +0100
 ---
 dates_lesson:
-8, 15, 22 en 29 januari
-5, 12, 19 en 26 februari
-5, 12, 19 en 26 maart
-2 en 9 april
+7, 14, 21 en 28 januari
+4, 11, 18 en 25 februari
+4, 11, 18 en 25 maart
+1 en 8 april
 ---
-date_exam_theory: 2022-04-16
+date_exam_theory: 2023-04-15
 ---
-date_exam_practice: 2022-04-23
+date_exam_practice: 2023-04-22
 ---
 teachers:
 docent_jonatan_helpers
-docent_ivo_roelandt
 ---
 person_contact:
 education
