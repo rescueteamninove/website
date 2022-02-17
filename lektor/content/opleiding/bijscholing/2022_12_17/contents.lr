@@ -1,4 +1,4 @@
-published: yes
+published: no
 ---
 registration_open: no
 ---
@@ -8,9 +8,9 @@ meta_description: Op zaterdag 17 december 2022 gaat er in het Provinciaal Gavers
 ---
 location: gaversbad
 ---
-datetime_start: 2020-12-17 8:00
+datetime_start: 2022-12-17 8:00
 ---
-datetime_stop: 2000-12-17 13:00
+datetime_stop: 2022-12-17 12:00
 ---
 capacity: 40
 ---
