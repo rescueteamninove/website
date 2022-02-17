@@ -11,6 +11,11 @@ $id_to_activity = array(
         "price" => 90,
         ),
 
+    "bs0" => array(
+        "description" => "Bijscholing Hoger Redder 25/6/2022",
+        "price" => 50,
+        ),
+
 );
 
 class Enroll {
