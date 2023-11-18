@@ -5,7 +5,7 @@ import git
 from pathlib import Path
 import lektor
 import lektor.project
-import lektor.cli
+import lektor.cli_utils
 import sys
 import time
 import typing
@@ -18,7 +18,7 @@ class Builder(object):
         self._build_flags = build_flags
 
         self._verbosity = 0
-        self._ctx = lektor.cli.Context()
+        self._ctx = lektor.cli_utils.Context()
         self._ctx.set_project_path(self._src)
         # self._project = self.__create_project()
 
